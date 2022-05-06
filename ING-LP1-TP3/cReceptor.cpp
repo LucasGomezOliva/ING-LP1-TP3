@@ -5,7 +5,7 @@ cReceptor::cReceptor() {
 	this->Estado = EstadoReceptor::Estable;
 }
 
-cReceptor::cReceptor(cFecha* FechaListaEspera, Prioridad Prioridad, string Patologia, EstadoReceptor Estado):cPaciente(Nombre, NumeroContacto, Sangre, FechaNacimeinto) {
+cReceptor::cReceptor(cFecha* FechaListaEspera, Prioridad Prioridad, string Patologia, EstadoReceptor Estado):cPaciente(Nombre, NumeroTelefono, Sangre, FechaNacimeinto) {
 	this->FechaListaEspera = FechaListaEspera;
 	this->PrioridadReceptor = Prioridad;
 	this->Patologia = Patologia;
