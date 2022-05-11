@@ -24,7 +24,7 @@ void cCentroDeSalud::AsignarVehiculo() {
 	//si distinta provincia -- avion
 }
 
-void cCentroDeSalud::RealizarAblación() {
+void cCentroDeSalud::RealizarAblacion() {
 	//setear fecha de ableacion en el donante
 	//setear fecha de ableacion en el organo extraido
 	//quitar el organo de la lista de organos del donante

@@ -17,7 +17,7 @@ public:
 	cCentroDeSalud(string Nombre, string Direccion, string Partido, string Provincia, long int Telefono);
 	~cCentroDeSalud();
 	void AsignarVehiculo();
-	void RealizarAblación();
+	void RealizarAblacion();
 	void RealizarTransplante();
 	string ToStringCentroDeSalud() const;
 	void imprimir() const;
