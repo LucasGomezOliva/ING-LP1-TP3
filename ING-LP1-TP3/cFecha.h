@@ -12,12 +12,15 @@ public:
 	cFecha();
 	cFecha(int dia, int mes, int anio, int hora, int minutos);
 	~cFecha();
-	int getDia() { return fecha.tm_mday; }
-	int getMes() { return fecha.tm_mon; }
-	int getAnio() { return fecha.tm_year; }
-	int getHora() { return fecha.tm_hour; }
-	int getMinutos() { return fecha.tm_min; }
-	string to_stringFecha();
-	void imprimir();
+	bool CompararFechas(cFecha* fecha);
+	//Gets y sets
+	int getDia() const { return fecha.tm_mday; }
+	int getMes() const { return fecha.tm_mon; }
+	int getAnio() const { return fecha.tm_year; }
+	int getHora() const { return fecha.tm_hour; }
+	int getMinutos() const { return fecha.tm_min; }
+	//ToStrin e imprimr
+	string to_stringFecha() const ;
+	void imprimir() const ;
 };
 

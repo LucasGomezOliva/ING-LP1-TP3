@@ -139,9 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cAmbulancia.cpp" />
+    <ClCompile Include="cAvion.cpp" />
     <ClCompile Include="cCentroDeSalud.cpp" />
     <ClCompile Include="cDonante.cpp" />
     <ClCompile Include="cFecha.cpp" />
+    <ClCompile Include="cHelicoptero.cpp" />
     <ClCompile Include="cOrgano.cpp" />
     <ClCompile Include="cPaciente.cpp" />
     <ClCompile Include="cReceptor.cpp" />
@@ -150,18 +153,22 @@
     <ClCompile Include="ING-LP1-TP3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cAmbulancia.h" />
+    <ClInclude Include="cAvion.h" />
     <ClInclude Include="cCentroDeSalud.h" />
     <ClInclude Include="cDonante.h" />
     <ClInclude Include="cFecha.h" />
+    <ClInclude Include="cHelicoptero.h" />
+    <ClInclude Include="cListaTemplate.h" />
     <ClInclude Include="cOrgano.h" />
     <ClInclude Include="cPaciente.h" />
     <ClInclude Include="cReceptor.h" />
     <ClInclude Include="cINCUCAI.h" />
     <ClInclude Include="cVehiculo.h" />
-    <ClInclude Include="EstadoReceptor.h" />
-    <ClInclude Include="Prioridad.h" />
-    <ClInclude Include="Sexo.h" />
-    <ClInclude Include="TipoDeSangre.h" />
+    <ClInclude Include="eEstadoReceptor.h" />
+    <ClInclude Include="ePrioridad.h" />
+    <ClInclude Include="eSexo.h" />
+    <ClInclude Include="eTipoDeSangre.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

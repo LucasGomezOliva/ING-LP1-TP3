@@ -1,5 +1,6 @@
 #pragma once
 #include<string>
+#include<iostream>
 
 using namespace std;
 class cCentroDeSalud
@@ -15,5 +16,12 @@ public:
 	cCentroDeSalud();
 	cCentroDeSalud(string Nombre, string Direccion, string Partido, string Provincia, long int Telefono);
 	~cCentroDeSalud();
+	void AsignarVehiculo();
+	void RealizarAblación();
+	void RealizarTransplante();
+	string ToStringCentroDeSalud() const;
+	void imprimir() const;
+	//Sobrecarga de operadores
+	friend ostream& operator<<(ostream& os, const cCentroDeSalud* CentroDeSalud);
 };
 

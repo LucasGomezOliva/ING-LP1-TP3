@@ -27,10 +27,14 @@ cFecha::~cFecha() {
 
 }
 
-string cFecha::to_stringFecha() {
+bool cFecha::CompararFechas(cFecha* fecha) { ///comparar 2 fechas para la diferencia de 20hs
+	return true;
+}
+
+string cFecha::to_stringFecha() const {
 	return "\tFecha: " + to_string(fecha.tm_wday) + "/" + to_string(fecha.tm_mon) + "/" + to_string(fecha.tm_year) +
 		"\t Hora:" + to_string(fecha.tm_hour) + ":" + to_string(fecha.tm_min);
 }
-void cFecha::imprimir() {
+void cFecha::imprimir() const {
 	cout << to_stringFecha() << endl;
 }

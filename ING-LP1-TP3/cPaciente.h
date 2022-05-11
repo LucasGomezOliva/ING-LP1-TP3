@@ -1,22 +1,25 @@
 #pragma once
 #include<string>
 #include "cFecha.h"
-#include"TipoDeSangre.h"
-#include"Sexo.h"
+#include"cCentroDeSalud.h"
+#include"eTipoDeSangre.h"
+#include"eSexo.h"
 using namespace std;
 class cPaciente
 {
 protected:
 	string Nombre;
 	cFecha* FechaNacimeinto = NULL;
-	Sexo SexoPaciente;
+	eSexo SexoPaciente;
 	string NumeroTelefono;
-	TipoDeSangre Sangre;
-	//Puntero centro de salud
-
+	eTipoDeSangre Sangre;
+	cCentroDeSalud* CentroDeSalud = NULL;
 public:
 	cPaciente();
-	cPaciente(string Nombre, string NumeroTelefono,TipoDeSangre Sangre, cFecha* FechaNaciemiento);
+	cPaciente(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto);
 	virtual ~cPaciente();
+	void SetCentroDeSalud(cCentroDeSalud* CentroDeSalud);
+	string ToStringPaciente()const;
+	virtual void imprimir() = 0 ;
 };
 

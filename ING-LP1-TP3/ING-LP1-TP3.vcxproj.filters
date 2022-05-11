@@ -42,6 +42,15 @@
     <ClCompile Include="cOrgano.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="cAmbulancia.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="cAvion.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="cHelicoptero.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cPaciente.h">
@@ -56,10 +65,10 @@
     <ClInclude Include="cFecha.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="TipoDeSangre.h">
+    <ClInclude Include="eTipoDeSangre.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Prioridad.h">
+    <ClInclude Include="ePrioridad.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="cINCUCAI.h">
@@ -71,13 +80,25 @@
     <ClInclude Include="cVehiculo.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="EstadoReceptor.h">
+    <ClInclude Include="eEstadoReceptor.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="cOrgano.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Sexo.h">
+    <ClInclude Include="eSexo.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="cAmbulancia.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="cAvion.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="cHelicoptero.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="cListaTemplate.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
