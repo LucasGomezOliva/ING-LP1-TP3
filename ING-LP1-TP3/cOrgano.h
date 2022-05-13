@@ -1,29 +1,20 @@
 #pragma once
 #include "cFecha.h"
+#include"Enums.h"
 using namespace std;
-
 class cOrgano
 {
 private:
-	// corazón, hígado, páncreas, huesos, riñón, pulmones, intestino, piel y córneas
-	string Organo;
+	eTipoDeOrgano Organo;
 	cFecha* FechaAbleacion = NULL;
 public:
 	cOrgano();
+	cOrgano(eTipoDeOrgano Organo);
 	virtual~cOrgano();
+	eTipoDeOrgano getTipo() const { return Organo; };
 	void setFechaAbleacion(int DiaAbleacion, int MesAbleacion, int AnioAbleacion, int HoraAbleacion, int MinutosAbleacion);
-	/*
-	bool operator==(const cOrgano& OtroOrgano) {
-		if (Organo == OtroOrgano.getTipoOrgano()){
-		return True;
-		}
-		return false;
-	}
+	bool operator==(const cOrgano& OtroOrgano);
+	friend ostream& operator<<(ostream& os, const cOrgano* organo);
 	
-	friend ostream& operator<<(ostream& os, const cOrgano* organo) {
-		os << organo->ToStringOrgano();
-		return os;
-	}
-	*/
 };
 

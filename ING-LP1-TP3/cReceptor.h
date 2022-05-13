@@ -1,12 +1,13 @@
 #pragma once
 #include"cPaciente.h"
-#include"ePrioridad.h"
-#include"eEstadoReceptor.h"
+//#include"ePrioridad.h"
+//#include"eEstadoReceptor.h"
+#include"Enums.h"
 using namespace std;
 class cReceptor :public cPaciente
 {
 public:
-	//organo a recibir
+	cOrgano* OrganoRecibir = NULL;
 	cFecha* FechaListaEspera = NULL;
 	ePrioridad PrioridadReceptor;
 	string Patologia;

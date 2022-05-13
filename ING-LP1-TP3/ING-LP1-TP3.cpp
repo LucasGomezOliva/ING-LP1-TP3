@@ -2,11 +2,12 @@
 //
 
 #include <iostream>
+#include"cINCUCAI.h"
+
 using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+int main(){
+	return 0;
 }
 
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar

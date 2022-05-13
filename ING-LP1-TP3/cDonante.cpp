@@ -1,54 +1,21 @@
 #include "cDonante.h"
 
 cDonante::cDonante():cPaciente() {
-	/*
-	//Corazon
-	ListaOrganosDonante.Agregar(new cOrgano());
-	//hígado
-	ListaOrganosDonante.Agregar(new cOrgano());
-	//páncreas
-	ListaOrganosDonante.Agregar(new cOrgano());
-	//huesos
-	ListaOrganosDonante.Agregar(new cOrgano());
-	//riñón
-	ListaOrganosDonante.Agregar(new cOrgano());
-	//pulmones
-	ListaOrganosDonante.Agregar(new cOrgano());
-	//intestino
-	ListaOrganosDonante.Agregar(new cOrgano());
-	//piel
-	ListaOrganosDonante.Agregar(new cOrgano());
-	//córneas
-	ListaOrganosDonante.Agregar(new cOrgano());
-	*/
+	this->ListaDeOrganosDonante = new cListaOrganos();
 }
 
 cDonante::cDonante(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimiento, int MesNacimiento, int AnioNacimiento, int HoraNacimiento, int MinutosNacimiento):cPaciente(Nombre, NumeroTelefono, Sangre, DiaNacimiento, MesNacimiento, AnioNacimiento, HoraNacimiento, MinutosNacimiento) {
-	/*
-	//Corazon
-	ListaOrganosDonante.Agregar(new cOrgano());
-	//hígado
-	ListaOrganosDonante.Agregar(new cOrgano());
-	//páncreas
-	ListaOrganosDonante.Agregar(new cOrgano());
-	//huesos
-	ListaOrganosDonante.Agregar(new cOrgano());
-	//riñón
-	ListaOrganosDonante.Agregar(new cOrgano());
-	//pulmones
-	ListaOrganosDonante.Agregar(new cOrgano());
-	//intestino
-	ListaOrganosDonante.Agregar(new cOrgano());
-	//piel
-	ListaOrganosDonante.Agregar(new cOrgano());
-	//córneas
-	ListaOrganosDonante.Agregar(new cOrgano());
-	*/
+	this->ListaDeOrganosDonante = new cListaOrganos(9, false);
+	//this->ListaDeOrganosDonante + new cOrgano();
+	*(ListaDeOrganosDonante) + new cOrgano(eTipoDeOrgano::Corazon);
+	*(ListaDeOrganosDonante)+new cOrgano(eTipoDeOrgano::Corneas);
+
 }
 
 cDonante::~cDonante() {
 	delete FechaFalleciemiento;
 	delete FechaComienzoAbleacion;
+	delete ListaDeOrganosDonante;
 }
 
 void cDonante::SetFallecimiento(int DiaFallecimiento, int MesFallecimiento, int AnioFallecimiento, int HoraFallecimiento, int MinutosFallecimiento) {

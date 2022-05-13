@@ -2,8 +2,8 @@
 #include<string>
 #include "cFecha.h"
 #include"cCentroDeSalud.h"
-#include"eTipoDeSangre.h"
-#include"eSexo.h"
+#include"cOrgano.h"
+#include"Enums.h"
 using namespace std;
 class cPaciente
 {

@@ -5,6 +5,7 @@ cINCUCAI::cINCUCAI() {
 cINCUCAI::~cINCUCAI() {
 
 }
+
 bool cINCUCAI::RecibirPaciente(cPaciente* Paciente) {
 
 	cDonante* DonanteAuxiliar = dynamic_cast<cDonante*> (Paciente);

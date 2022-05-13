@@ -1,7 +1,8 @@
 #pragma once
 #include"cPaciente.h"
-#include"cOrgano.h"
-#include"cListaTemplate.h"
+#include"cListaOrganos.h"
+//#include "cListaTemplate.h"
+
 using namespace std;
 class cDonante:public cPaciente
 {
@@ -9,7 +10,8 @@ public:
 	cFecha* FechaFalleciemiento = NULL;
 	cFecha* FechaComienzoAbleacion = NULL;
 	//Lista de organos -- Revisar --
-	//cListaTemplate <cOrgano, string> ListaOrganosDonante;
+	cListaOrganos* ListaDeOrganosDonante = NULL;
+
 private:
 	cDonante();
 	cDonante(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimiento, int MesNacimiento, int AnioNacimiento, int HoraNacimiento, int MinutosNacimiento);
