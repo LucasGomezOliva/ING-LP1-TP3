@@ -8,12 +8,11 @@ using namespace std;
 class cDonante:public cPaciente
 {
 protected:
+
 	cFecha* FechaFalleciemiento = NULL;
 	cFecha* FechaComienzoAbleacion = NULL;
-	//Lista de organos -- Revisar --
 	cListaOrganos* ListaDeOrganosDonante = NULL;
-	//cLista <cOrgano, eTipoDeOrgano, eTipoDeSangre> listadeorganos;
-
+	
 public:
 	cDonante();
 	cDonante(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimiento, int MesNacimiento, int AnioNacimiento, int HoraNacimiento, int MinutosNacimiento);

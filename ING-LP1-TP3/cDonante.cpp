@@ -6,15 +6,13 @@ cDonante::cDonante():cPaciente() {
 
 cDonante::cDonante(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimiento, int MesNacimiento, int AnioNacimiento, int HoraNacimiento, int MinutosNacimiento):cPaciente(Nombre, NumeroTelefono, Sangre, DiaNacimiento, MesNacimiento, AnioNacimiento, HoraNacimiento, MinutosNacimiento) {
 	this->ListaDeOrganosDonante = new cListaOrganos(9, false);
-	//this->ListaDeOrganosDonante + new cOrgano();
-
-	//Corazon = 0, Higado, Pancreas, Huesos, Rinion, Pulmones, Intestino, Piel, Corneas 
 
 	*(ListaDeOrganosDonante) + new cOrgano(eTipoDeOrgano::Corazon);
 	*(ListaDeOrganosDonante) + new cOrgano(eTipoDeOrgano::Higado);
 	*(ListaDeOrganosDonante) + new cOrgano(eTipoDeOrgano::Pancreas);
 	*(ListaDeOrganosDonante) + new cOrgano(eTipoDeOrgano::Huesos);
 	*(ListaDeOrganosDonante) + new cOrgano(eTipoDeOrgano::Rinion);
+	*(ListaDeOrganosDonante) + new cOrgano(eTipoDeOrgano::Pulmones);
 	*(ListaDeOrganosDonante) + new cOrgano(eTipoDeOrgano::Intestino);
 	*(ListaDeOrganosDonante) + new cOrgano(eTipoDeOrgano::Piel);
 	*(ListaDeOrganosDonante) + new cOrgano(eTipoDeOrgano::Corneas);

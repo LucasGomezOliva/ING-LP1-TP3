@@ -1,13 +1,14 @@
 #pragma once
-#include"cReceptor.h"
-#include"cDonante.h"
+#include"cListaDonantes.h"
+#include"cListaReceptores.h"
+#include"cListaCentrosDeSalud.h"
 using namespace std;
 class cINCUCAI
 {
 private:
-	//lista receptores
-	//lista donantes
-	//lista centros de salud
+	cListaReceptores* ListaReceptoresINCUCAI = NULL;
+	cListaDonantes* ListaDonantesINCUCAI = NULL;
+	cListaCentrosDeSalud* ListaDeCentrosDeSaludINCUCAI = NULL;
 public:
 	cINCUCAI();
 	~cINCUCAI();

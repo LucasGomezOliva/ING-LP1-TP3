@@ -23,6 +23,7 @@ int main(){
 	INCUCAI->RecibirPaciente(Receptor1);
 
 	delete Donante1;
+	delete Receptor1;
 	delete INCUCAI;
 	return 0;
 }

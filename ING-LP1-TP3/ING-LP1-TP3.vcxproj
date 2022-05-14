@@ -145,7 +145,10 @@
     <ClCompile Include="cDonante.cpp" />
     <ClCompile Include="cFecha.cpp" />
     <ClCompile Include="cHelicoptero.cpp" />
+    <ClCompile Include="cListaCentrosDeSalud.cpp" />
+    <ClCompile Include="cListaDonantes.cpp" />
     <ClCompile Include="cListaOrganos.cpp" />
+    <ClCompile Include="cListaReceptores.cpp" />
     <ClCompile Include="cOrgano.cpp" />
     <ClCompile Include="cPaciente.cpp" />
     <ClCompile Include="cReceptor.cpp" />
@@ -161,7 +164,10 @@
     <ClInclude Include="cDonante.h" />
     <ClInclude Include="cFecha.h" />
     <ClInclude Include="cHelicoptero.h" />
+    <ClInclude Include="cListaCentrosDeSalud.h" />
+    <ClInclude Include="cListaDonantes.h" />
     <ClInclude Include="cListaOrganos.h" />
+    <ClInclude Include="cListaReceptores.h" />
     <ClInclude Include="cListaTemplate.h" />
     <ClInclude Include="cOrgano.h" />
     <ClInclude Include="cPaciente.h" />
