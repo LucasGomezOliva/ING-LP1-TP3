@@ -8,8 +8,9 @@ private:
 
 public:
 	cListaOrganos();
-	cListaOrganos(int TamanioLista, bool on_delete_erase);
+	cListaOrganos(unsigned int TamanioLista, bool on_delete_erase);
 	~cListaOrganos();
 	cOrgano* BuscarOrgano(eTipoDeOrgano Organo);
+	string ListaOrganosToString();
 };
 

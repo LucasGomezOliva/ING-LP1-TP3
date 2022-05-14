@@ -7,7 +7,7 @@ class cListaReceptores:public cListaTemplate<cReceptor>
 private:
 public:
 	cListaReceptores();
-	cListaReceptores(int TamanioLista, bool on_delete_erase);
+	cListaReceptores(unsigned int TamanioLista, bool on_delete_erase);
 	~cListaReceptores();
 };
 

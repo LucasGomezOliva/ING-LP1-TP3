@@ -14,5 +14,7 @@ public:
 	~cINCUCAI();
 	bool RecibirPaciente(cPaciente* Paciente);
 	void BuscarPosiblesReceptores(cDonante* Donante);
+	string ToStringINCUCAI() const;
+	void imprimir() const;
 };
 

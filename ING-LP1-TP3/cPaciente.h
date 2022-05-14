@@ -20,6 +20,7 @@ public:
 	virtual ~cPaciente();
 	void SetCentroDeSalud(cCentroDeSalud* CentroDeSalud);
 	string ToStringPaciente()const;
+	bool operator==(const cPaciente& OtroPaciente);
 	virtual void imprimir() = 0 ;
 };
 

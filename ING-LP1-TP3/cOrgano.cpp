@@ -23,6 +23,6 @@ bool cOrgano::operator==(const cOrgano& OtroOrgano) {
 }
 
 ostream& operator<<(ostream& os, const cOrgano* organo) {
-	os << TipoDeOrganoToString(organo->getTipo());
+	os << "\nOrgano: " << TipoDeOrganoToString(organo->getTipo());
 	return os;
 }

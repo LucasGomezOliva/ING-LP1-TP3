@@ -5,6 +5,7 @@ cCentroDeSalud::cCentroDeSalud() {
 	this->Partido = "";
 	this->Provincia = "";
 	this->Telefono = 0;
+	this->ListaDeVehiculosDisponibles = new cListaVehiculos(10, false);
 }
 cCentroDeSalud::cCentroDeSalud(string Nombre,string Direccion,string Partido,string Provincia,long int Telefono) {
 	this->Nombre = Nombre;
@@ -12,9 +13,10 @@ cCentroDeSalud::cCentroDeSalud(string Nombre,string Direccion,string Partido,str
 	this->Partido = Partido;
 	this->Provincia = Provincia;
 	this->Telefono = Telefono;
+	this->ListaDeVehiculosDisponibles = new cListaVehiculos(10, false);
 }
 cCentroDeSalud::~cCentroDeSalud() {
-
+	delete ListaDeVehiculosDisponibles;
 }
 
 void cCentroDeSalud::AsignarVehiculo() {

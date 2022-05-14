@@ -8,14 +8,11 @@ using namespace std;
 
 int main(){
 
-
-	//cLista <cOrgano, eTipoDeOrgano, eTipoDeSangre> listaorganos(12, false);
-
-
+	//INCUCAI
 	cINCUCAI* INCUCAI = new cINCUCAI();
-
 	//Donantes
-	cDonante* Donante1 = new cDonante("nombre", "123", eTipoDeSangre::AB_Negativo, 1, 2, 3, 4, 5);
+	cDonante* Donante1 = new cDonante("nombre01", "1111", eTipoDeSangre::AB_Negativo, 1, 1, 2000, 1, 1, 5, 5, 2030, 16, 26);
+	cDonante* Donante2 = new cDonante("nombre02", "2222", eTipoDeSangre::AB_Negativo, 1, 1, 2000, 1, 1, 5, 5, 2030, 20, 30);
 	//Recpetores
 	cReceptor* Receptor1 = new cReceptor("nombre", "123", eTipoDeSangre::AB_Negativo, 16, 02, 2000, 16, 50, 1, 01, 2020, 16, 50, ePrioridad::Alta, "pATOLOIGA", eEstadoReceptor::Estable);
 	//Incucai recibe pacientes
@@ -23,6 +20,7 @@ int main(){
 	INCUCAI->RecibirPaciente(Receptor1);
 
 	delete Donante1;
+	delete Donante2;
 	delete Receptor1;
 	delete INCUCAI;
 	return 0;

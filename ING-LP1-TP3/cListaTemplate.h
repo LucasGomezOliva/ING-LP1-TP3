@@ -9,7 +9,7 @@ class cListaTemplate
 {
 protected:
 	T** Array;
-	int CA, TAM;
+	unsigned int CA, TAM;
 	bool on_delete_erase;
 	bool allow_duplicates;
 
@@ -30,7 +30,7 @@ inline cListaTemplate <T>::cListaTemplate(int TAM, bool on_delete_erase) {
 	this->TAM = TAM;
 	CA = 0;
 	Array = new T * [TAM];
-	for (int i = 0; i < TAM; i++){
+	for (unsigned int i = 0; i < TAM; i++){
 		Array[i] = NULL;
 	}
 	this->on_delete_erase = on_delete_erase;
@@ -41,7 +41,7 @@ template <class T>
 inline cListaTemplate <T>::~cListaTemplate() {
 	if (Array != NULL) {
 		if (on_delete_erase) {
-			for (int i = 0; i < CA; i++) {
+			for (unsigned int i = 0; i < CA; i++) {
 				if (Array[i] != NULL)
 					delete Array[i];
 			}
@@ -69,7 +69,7 @@ inline T*cListaTemplate <T>::Quitar(T* objeto) {
 	if (pos < 0)
 		return NULL;
 	T* aux = Array[pos];
-	for (int i = pos; i < CA - 1; i++) {
+	for (unsigned int i = pos; i < CA - 1; i++) {
 		Array[i] = Array[i + 1];
 	}
 	CA--;
@@ -79,7 +79,7 @@ inline T*cListaTemplate <T>::Quitar(T* objeto) {
 
 template <class T>
 inline int cListaTemplate <T>::getPos(T* objeto) {
-	for (int i = 0; i < CA; i++) {
+	for (unsigned int i = 0; i < CA; i++) {
 		// sobrecarga de ==
 		if (*objeto == *(Array[i]))
 			return i;
@@ -89,7 +89,7 @@ inline int cListaTemplate <T>::getPos(T* objeto) {
 
 template <class T>
 inline void cListaTemplate <T>::Listar() {
-	for (int i = 0; i < CA; i++) {
+	for (unsigned int i = 0; i < CA; i++) {
 		//sobrecarga <<
 		cout << *Array[i] << endl;
 	}

@@ -8,7 +8,7 @@ private:
 
 public:
 	cListaDonantes();
-	cListaDonantes(int TamanioLista, bool on_delete_erase);
+	cListaDonantes(unsigned int TamanioLista, bool on_delete_erase);
 	~cListaDonantes();
 };
 

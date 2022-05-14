@@ -4,9 +4,10 @@
 class cListaCentrosDeSalud:public cListaTemplate<cCentroDeSalud>
 {
 private:
+
 public:
 	cListaCentrosDeSalud();
-	cListaCentrosDeSalud(int TamanioLista, bool on_delete_erase);
+	cListaCentrosDeSalud(unsigned int TamanioLista, bool on_delete_erase);
 	~cListaCentrosDeSalud();
 };
 

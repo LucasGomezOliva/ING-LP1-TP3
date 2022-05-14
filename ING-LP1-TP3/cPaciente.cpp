@@ -14,7 +14,13 @@ cPaciente::cPaciente(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre,
 }
 
 cPaciente::~cPaciente() {
+	delete FechaNacimeinto;
+}
 
+bool cPaciente::operator==(const cPaciente& OtroPaciente) {
+	if (this->Nombre == OtroPaciente.Nombre)
+		return true;
+	return false;
 }
 
 void cPaciente::SetCentroDeSalud(cCentroDeSalud* CentroDeSalud) {

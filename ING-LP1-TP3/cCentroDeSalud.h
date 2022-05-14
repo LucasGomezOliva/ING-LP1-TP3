@@ -1,6 +1,7 @@
 #pragma once
 #include<string>
 #include<iostream>
+#include"cListaVehiculos.h"
 
 using namespace std;
 class cCentroDeSalud
@@ -11,7 +12,7 @@ private:
 	string Partido;
 	string Provincia;
 	long int Telefono;
-	//lista de vehiculos
+	cListaVehiculos* ListaDeVehiculosDisponibles = NULL;
 public:
 	cCentroDeSalud();
 	cCentroDeSalud(string Nombre, string Direccion, string Partido, string Provincia, long int Telefono);

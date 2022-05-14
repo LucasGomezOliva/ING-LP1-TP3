@@ -149,6 +149,7 @@
     <ClCompile Include="cListaDonantes.cpp" />
     <ClCompile Include="cListaOrganos.cpp" />
     <ClCompile Include="cListaReceptores.cpp" />
+    <ClCompile Include="cListaVehiculos.cpp" />
     <ClCompile Include="cOrgano.cpp" />
     <ClCompile Include="cPaciente.cpp" />
     <ClCompile Include="cReceptor.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="cListaOrganos.h" />
     <ClInclude Include="cListaReceptores.h" />
     <ClInclude Include="cListaTemplate.h" />
+    <ClInclude Include="cListaVehiculos.h" />
     <ClInclude Include="cOrgano.h" />
     <ClInclude Include="cPaciente.h" />
     <ClInclude Include="cReceptor.h" />

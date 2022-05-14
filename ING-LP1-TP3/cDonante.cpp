@@ -4,9 +4,9 @@ cDonante::cDonante():cPaciente() {
 	this->ListaDeOrganosDonante = new cListaOrganos();
 }
 
-cDonante::cDonante(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimiento, int MesNacimiento, int AnioNacimiento, int HoraNacimiento, int MinutosNacimiento):cPaciente(Nombre, NumeroTelefono, Sangre, DiaNacimiento, MesNacimiento, AnioNacimiento, HoraNacimiento, MinutosNacimiento) {
+cDonante::cDonante(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimiento, int MesNacimiento, int AnioNacimiento, int HoraNacimiento, int MinutosNacimiento, int DiaFallecimient, int MesFallecimient, int AnioFallecimient, int HoraFallecimient, int MinutosFallecimient):cPaciente(Nombre, NumeroTelefono, Sangre, DiaNacimiento, MesNacimiento, AnioNacimiento, HoraNacimiento, MinutosNacimiento) {
+	SetFallecimiento(DiaFallecimient, MesFallecimient, AnioFallecimient, HoraFallecimient, MinutosFallecimient);
 	this->ListaDeOrganosDonante = new cListaOrganos(9, false);
-
 	*(ListaDeOrganosDonante) + new cOrgano(eTipoDeOrgano::Corazon);
 	*(ListaDeOrganosDonante) + new cOrgano(eTipoDeOrgano::Higado);
 	*(ListaDeOrganosDonante) + new cOrgano(eTipoDeOrgano::Pancreas);
@@ -33,12 +33,17 @@ void cDonante::SetFechaComienzoAbleacion(int DiaComienzoAbleacion, int MesComien
 }
 
 string cDonante::ToStringDonante() const {
-	return ToStringPaciente() +
-		"\n Fecha de Fallecimiento: " + FechaFalleciemiento->to_stringFecha() +
-		"\n Fecha de Comienzo de Ableacion:" + FechaComienzoAbleacion->to_stringFecha();
+	string DatosDonante;
+	DatosDonante = ToStringPaciente();
+	if (FechaFalleciemiento != NULL)
+		DatosDonante = DatosDonante + "\n Fecha de Fallecimiento: " + FechaFalleciemiento->to_stringFecha();
+	if(FechaComienzoAbleacion != NULL)
+		DatosDonante = DatosDonante + "\n Fecha de Comienzo de Ableacion:" + FechaComienzoAbleacion->to_stringFecha();
+	DatosDonante = DatosDonante + ListaDeOrganosDonante->ListaOrganosToString();
+	return DatosDonante;
 }
 
-void cDonante::imprimir() {
+void cDonante::imprimir(){
 	cout << ToStringDonante() << endl;
 }
 

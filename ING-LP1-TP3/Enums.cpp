@@ -72,7 +72,6 @@ string TipoDeOrganoToString(eTipoDeOrgano organo) {
 	}
 }
 
-
 string TipoDeSangreToString(eTipoDeSangre sangre) {
 	switch (sangre)
 	{
