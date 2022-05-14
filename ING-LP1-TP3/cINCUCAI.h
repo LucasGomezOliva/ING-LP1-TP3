@@ -4,11 +4,11 @@
 using namespace std;
 class cINCUCAI
 {
-public:
+private:
 	//lista receptores
 	//lista donantes
 	//lista centros de salud
-private:
+public:
 	cINCUCAI();
 	~cINCUCAI();
 	bool RecibirPaciente(cPaciente* Paciente);

@@ -6,13 +6,13 @@
 using namespace std;
 class cReceptor :public cPaciente
 {
-public:
+protected:
 	cOrgano* OrganoRecibir = NULL;
 	cFecha* FechaListaEspera = NULL;
 	ePrioridad PrioridadReceptor;
 	string Patologia;
 	eEstadoReceptor Estado;
-private:
+public:
 	cReceptor();
 	cReceptor(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimiento, int MesNacimiento, int AnioNacimiento, int HoraNacimiento, int MinutosNacimiento, int DiaListaEspera, int MesListaEspera, int AnioListaEspera, int HoraListaEspera, int MinutosListaEspera, ePrioridad Prioridad, string Patologia, eEstadoReceptor Estado);
 	~cReceptor();
