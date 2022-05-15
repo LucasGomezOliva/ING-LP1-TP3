@@ -10,6 +10,11 @@ cINCUCAI::~cINCUCAI() {
 	delete ListaDeCentrosDeSaludINCUCAI;
 }
 
+void cINCUCAI::CargaDeCentroDeSalud(cCentroDeSalud* CentroDeSalud) {
+	*(ListaDeCentrosDeSaludINCUCAI) + CentroDeSalud;
+}
+
+
 bool cINCUCAI::RecibirPaciente(cPaciente* Paciente) {
 
 	cDonante* DonanteAuxiliar = dynamic_cast<cDonante*> (Paciente);
@@ -17,8 +22,39 @@ bool cINCUCAI::RecibirPaciente(cPaciente* Paciente) {
 		cout << "El paciente es un donante" << endl;
 		*(ListaDonantesINCUCAI) + DonanteAuxiliar;
 		// metodo buscar los posibles receptores -- devolver sublista por cada organo a donar
-		BuscarPosiblesReceptores(DonanteAuxiliar);
-		//
+
+		for (unsigned int NumeroDeOrgano = 0; NumeroDeOrgano < DonanteAuxiliar->GetCantidadOrganos(); NumeroDeOrgano++) {
+			cListaReceptores* ListaPosiblesReceptores = BuscarPosiblesReceptores(DonanteAuxiliar, NumeroDeOrgano);
+
+			cPaciente* PacienteSeleccionado = SeleccionDeReceptor(DonanteAuxiliar);
+
+			for (unsigned int PosicionListaPosiblesReceptores = 0; PosicionListaPosiblesReceptores < ListaPosiblesReceptores->CA; PosicionListaPosiblesReceptores++) {
+				if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Urgente) {
+					//Iniciar proceso de ableacion
+					//return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
+					DonanteAuxiliar->QuitarOrgano(NumeroDeOrgano);
+				}
+
+				if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Alta) {
+					//Iniciar proceso de ableacion
+					//return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
+					DonanteAuxiliar->QuitarOrgano(NumeroDeOrgano);
+				}
+
+				if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Media) {
+					//Iniciar proceso de ableacion
+					//return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
+					DonanteAuxiliar->QuitarOrgano(NumeroDeOrgano);
+				}
+
+				if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Baja) {
+					//Iniciar proceso de ableacion
+					//return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
+					DonanteAuxiliar->QuitarOrgano(NumeroDeOrgano);
+				}
+			}
+			delete ListaPosiblesReceptores;
+		}
 	}
 
 	cReceptor* ReceptorAuxiliar = dynamic_cast<cReceptor*> (Paciente);
@@ -32,8 +68,21 @@ bool cINCUCAI::RecibirPaciente(cPaciente* Paciente) {
 	return true;
 }
 
-void cINCUCAI::BuscarPosiblesReceptores(cDonante* Donante) {
+cListaReceptores* cINCUCAI::BuscarPosiblesReceptores(cDonante*Donante,unsigned int NumeroDeOrgano) {
 	//devolver sublista por cada organo a donar
+	cListaReceptores* ListaPosiblesReceptores = new cListaReceptores(100, false);
+	for (unsigned int i = 0; i < ListaReceptoresINCUCAI->CA; i++) {
+		//if (ListaReceptoresINCUCAI->Array[i]->GetOrganoRecibir() == Donante->GetOrgano(NumeroDeOrgano) && ListaReceptoresINCUCAI->Array[i]->GetTipoDeSangre()==Donante->GetTipoDeSangre()) {
+		if(*(Donante) == *(ListaReceptoresINCUCAI->Array[i])){
+			ListaPosiblesReceptores->Agregar(ListaReceptoresINCUCAI->Array[i]);
+			cout << "Receptor compatible encontrado para: "<<TipoDeOrganoToString(Donante->GetOrgano(NumeroDeOrgano)->getTipo()) << endl;
+		}
+	}
+	return ListaPosiblesReceptores;
+}
+
+cPaciente* cINCUCAI::SeleccionDeReceptor(cDonante* Donante) {
+	return NULL;
 }
 
 string cINCUCAI::ToStringINCUCAI() const {

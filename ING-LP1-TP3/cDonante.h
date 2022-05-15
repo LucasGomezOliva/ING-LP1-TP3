@@ -1,5 +1,6 @@
 #pragma once
 #include"cPaciente.h"
+#include "cReceptor.h"
 #include"cListaOrganos.h"
 //#include "cListaTemplate.h"
 //#include"cListaTemplate2.h"
@@ -15,16 +16,30 @@ protected:
 	
 public:
 	cDonante();
-	cDonante(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimiento, int MesNacimiento, int AnioNacimiento, int HoraNacimiento, int MinutosNacimiento, int DiaFallecimient, int MesFallecimient, int AnioFallecimient, int HoraFallecimient, int MinutosFallecimient);
+	cDonante(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimiento, int MesNacimiento, int AnioNacimiento, int HoraNacimiento, int MinutosNacimiento,cCentroDeSalud* CentroDeSalud, int DiaFallecimient, int MesFallecimient, int AnioFallecimient, int HoraFallecimient, int MinutosFallecimient);
 	~cDonante();
-	//Gets y sets
+	//Sets
 	void SetFallecimiento(int DiaFallecimient, int MesFallecimient, int AnioFallecimient, int HoraFallecimient, int MinutosFallecimient);
 	void SetFechaComienzoAbleacion(int DiaComienzoAbleacion, int MesComienzoAbleacion, int AnioComienzoAbleacion, int HoraComienzoAbleacion, int MinutosComienzoAbleacion);
+	//Gets
+	cOrgano* GetOrgano(unsigned int NumeroDeOrgano) const ;
+	unsigned int GetCantidadOrganos() const;
 	//ToStrin e imprimr
 	string ToStringDonante() const;
 	void imprimir();
 	//Sobrecarga de operadores
 	friend ostream& operator<<(ostream& os, const cDonante* donante);
+
+	cOrgano* QuitarOrgano(unsigned int NumeroDeOrgano) {
+		return ListaDeOrganosDonante->Quitar(ListaDeOrganosDonante->BuscarOrgano(NumeroDeOrgano));
+	}
+
+	bool operator==(const cDonante& Donante) {
+		if (Nombre == Donante.GetNombre())
+			return true;
+		return false;
+	}
+	bool operator==(cReceptor& Receptor);
 
 };
 

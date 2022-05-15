@@ -6,11 +6,12 @@ cPaciente::cPaciente() {
 	this->Sangre = eTipoDeSangre::O_Negativo;
 }
 
-cPaciente::cPaciente(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto) {
+cPaciente::cPaciente(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto, cCentroDeSalud* CentroDeSalud) {
 	this->Nombre = Nombre;
 	this->FechaNacimeinto = new cFecha(DiaNacimeinto, MesNacimeinto, AnioNacimeinto, HoraNacimeinto, MinutosNacimeinto);
 	this->NumeroTelefono = NumeroTelefono;
 	this->Sangre = Sangre;
+	this->CentroDeSalud = CentroDeSalud;
 }
 
 cPaciente::~cPaciente() {
@@ -25,6 +26,14 @@ bool cPaciente::operator==(const cPaciente& OtroPaciente) {
 
 void cPaciente::SetCentroDeSalud(cCentroDeSalud* CentroDeSalud) {
 	this->CentroDeSalud = CentroDeSalud;
+}
+
+eTipoDeSangre cPaciente::GetTipoDeSangre() const {
+	return Sangre;
+}
+
+string cPaciente::GetNombre() const {
+	return Nombre;
 }
 
 string cPaciente::ToStringPaciente() const {

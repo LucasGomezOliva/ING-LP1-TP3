@@ -12,8 +12,12 @@ private:
 public:
 	cINCUCAI();
 	~cINCUCAI();
+	void CargaDeCentroDeSalud(cCentroDeSalud* CentroDeSalud);
 	bool RecibirPaciente(cPaciente* Paciente);
-	void BuscarPosiblesReceptores(cDonante* Donante);
+
+	cPaciente* SeleccionDeReceptor(cDonante*Donante);
+
+	cListaReceptores* BuscarPosiblesReceptores(cDonante* Donante, unsigned int NumeroDeOrgano);
 	string ToStringINCUCAI() const;
 	void imprimir() const;
 };

@@ -10,18 +10,55 @@ int main(){
 
 	//INCUCAI
 	cINCUCAI* INCUCAI = new cINCUCAI();
+	//Centros de Salud
+	cCentroDeSalud* CentroDeSalud1 = new cCentroDeSalud("Centro1", "Direccion1", "Partido1", "Provincia1", 11111);
+	cCentroDeSalud* CentroDeSalud2 = new cCentroDeSalud("Centro2", "Direccion2", "Partido2", "Provincia2", 22222);
+	cCentroDeSalud* CentroDeSalud3 = new cCentroDeSalud("Centro3", "Direccion3", "Partido3", "Provincia3", 33333);
 	//Donantes
-	cDonante* Donante1 = new cDonante("nombre01", "1111", eTipoDeSangre::AB_Negativo, 1, 1, 2000, 1, 1, 5, 5, 2030, 16, 26);
-	cDonante* Donante2 = new cDonante("nombre02", "2222", eTipoDeSangre::AB_Negativo, 1, 1, 2000, 1, 1, 5, 5, 2030, 20, 30);
+	cDonante* Donante1 = new cDonante("nombre01", "1111", eTipoDeSangre::AB_Negativo, 1, 1, 2000, 1, 1, CentroDeSalud1, 5, 5, 2030, 16, 26);
+	cDonante* Donante2 = new cDonante("nombre02", "2222", eTipoDeSangre::AB_Negativo, 1, 1, 2000, 1, 1, CentroDeSalud2, 5, 5, 2030, 20, 30);
 	//Recpetores
-	cReceptor* Receptor1 = new cReceptor("nombre", "123", eTipoDeSangre::AB_Negativo, 16, 02, 2000, 16, 50, 1, 01, 2020, 16, 50, ePrioridad::Alta, "pATOLOIGA", eEstadoReceptor::Estable);
-	//Incucai recibe pacientes
-	INCUCAI->RecibirPaciente(Donante1);
-	INCUCAI->RecibirPaciente(Receptor1);
-
+	cReceptor* Receptor1 = new cReceptor("nombre", "123", eTipoDeSangre::AB_Negativo, 16, 02, 2000, 16, 50, CentroDeSalud3, 1, 01, 2020, 16, 50, ePrioridad::Alta, "Patologia", eEstadoReceptor::Estable, eTipoDeOrgano::Corazon);
+	
+	//Carga Centros de salud en INCUCAI
+	try {
+		INCUCAI->CargaDeCentroDeSalud(CentroDeSalud1);
+	}
+	catch (exception& e) {
+		cout << e.what() << endl;
+	}
+	try {
+		INCUCAI->CargaDeCentroDeSalud(CentroDeSalud2);
+	}
+	catch (exception& e) {
+		cout << e.what() << endl;
+	}
+	try {
+		INCUCAI->CargaDeCentroDeSalud(CentroDeSalud3);
+	}
+	catch (exception& e) {
+		cout << e.what() << endl;
+	}
+	//Incucai recibe receptores
+	try {
+		INCUCAI->RecibirPaciente(Receptor1);
+	}
+	catch (exception& e) {
+		cout << e.what() << endl;
+	}
+	//INCUCAI recibe donantes
+	try {
+		INCUCAI->RecibirPaciente(Donante1);
+	}
+	catch (exception& e) {
+		cout << e.what() << endl;
+	}
 	delete Donante1;
 	delete Donante2;
 	delete Receptor1;
+	delete CentroDeSalud1;
+	delete CentroDeSalud2;
+	delete CentroDeSalud3;
 	delete INCUCAI;
 	return 0;
 }

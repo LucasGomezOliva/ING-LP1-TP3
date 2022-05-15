@@ -30,3 +30,7 @@ cOrgano* cListaOrganos::BuscarOrgano(eTipoDeOrgano Organo){
 	}
 	return NULL;
 }
+
+cOrgano* cListaOrganos::BuscarOrgano(unsigned int NumeroDeOrgano) {
+	return Array[NumeroDeOrgano];
+}

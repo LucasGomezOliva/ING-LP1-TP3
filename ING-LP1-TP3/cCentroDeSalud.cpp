@@ -57,3 +57,9 @@ ostream& operator<<(ostream& os, const cCentroDeSalud* CentroDeSalud) {
 	os << CentroDeSalud->ToStringCentroDeSalud();
 	return os;
 }
+
+bool cCentroDeSalud::operator==(const cCentroDeSalud& OtroCentroDeSalud) {
+	if (Nombre == OtroCentroDeSalud.Nombre)
+		return true;
+	return false;
+}

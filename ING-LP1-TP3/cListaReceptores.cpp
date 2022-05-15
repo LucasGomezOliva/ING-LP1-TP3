@@ -11,3 +11,19 @@ cListaReceptores::~cListaReceptores() {
 
 }
 
+cReceptor* cListaReceptores::BuscarReceptor(cOrgano* OrganoRecibir) {
+	for (unsigned int i = 0; i < CA; i++) {
+		if (Array[i] != NULL) {
+			return NULL;
+		}
+	}
+}
+
+cReceptor* cListaReceptores::BuscarReceptor(string NombreRecpetor) {
+	for (unsigned int i = 0; i < CA; i++) {
+		if (Array[i]->GetNombre()==NombreRecpetor){
+			return Array[i];
+		}
+	}
+	return NULL;
+}

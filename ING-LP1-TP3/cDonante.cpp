@@ -4,9 +4,9 @@ cDonante::cDonante():cPaciente() {
 	this->ListaDeOrganosDonante = new cListaOrganos();
 }
 
-cDonante::cDonante(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimiento, int MesNacimiento, int AnioNacimiento, int HoraNacimiento, int MinutosNacimiento, int DiaFallecimient, int MesFallecimient, int AnioFallecimient, int HoraFallecimient, int MinutosFallecimient):cPaciente(Nombre, NumeroTelefono, Sangre, DiaNacimiento, MesNacimiento, AnioNacimiento, HoraNacimiento, MinutosNacimiento) {
+cDonante::cDonante(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimiento, int MesNacimiento, int AnioNacimiento, int HoraNacimiento, int MinutosNacimiento, cCentroDeSalud* CentroDeSalud, int DiaFallecimient, int MesFallecimient, int AnioFallecimient, int HoraFallecimient, int MinutosFallecimient):cPaciente(Nombre, NumeroTelefono, Sangre, DiaNacimiento, MesNacimiento, AnioNacimiento, HoraNacimiento, MinutosNacimiento, CentroDeSalud) {
 	SetFallecimiento(DiaFallecimient, MesFallecimient, AnioFallecimient, HoraFallecimient, MinutosFallecimient);
-	this->ListaDeOrganosDonante = new cListaOrganos(9, false);
+	this->ListaDeOrganosDonante = new cListaOrganos(9, true);
 	*(ListaDeOrganosDonante) + new cOrgano(eTipoDeOrgano::Corazon);
 	*(ListaDeOrganosDonante) + new cOrgano(eTipoDeOrgano::Higado);
 	*(ListaDeOrganosDonante) + new cOrgano(eTipoDeOrgano::Pancreas);
@@ -32,6 +32,15 @@ void cDonante::SetFechaComienzoAbleacion(int DiaComienzoAbleacion, int MesComien
 	this->FechaFalleciemiento = new cFecha(DiaComienzoAbleacion, MesComienzoAbleacion, AnioComienzoAbleacion, HoraComienzoAbleacion, MinutosComienzoAbleacion);
 }
 
+cOrgano* cDonante::GetOrgano(unsigned int NumeroDeOrgano) const {
+	
+	return ListaDeOrganosDonante->BuscarOrgano(NumeroDeOrgano);
+}
+
+unsigned cDonante::GetCantidadOrganos() const {
+	return ListaDeOrganosDonante->CA;
+}
+
 string cDonante::ToStringDonante() const {
 	string DatosDonante;
 	DatosDonante = ToStringPaciente();
@@ -50,4 +59,14 @@ void cDonante::imprimir(){
 ostream& operator<<(ostream& os, const cDonante* donante) {
 	os << donante->ToStringDonante();
 	return os;
+}
+
+bool cDonante::operator==(cReceptor& Receptor) {
+	//ListaReceptoresINCUCAI->Array[i]->GetOrganoRecibir() == Donante->GetOrgano(NumeroDeOrgano) && ListaReceptoresINCUCAI->Array[i]->GetTipoDeSangre()==Donante->GetTipoDeSangre()
+	for (unsigned int PosicionListaOrganos = 0; PosicionListaOrganos < ListaDeOrganosDonante->CA; PosicionListaOrganos++) {
+		if ((Receptor.GetTipoDeSangre() == Sangre) && (Receptor.GetOrganoRecibir()->getTipo() == ListaDeOrganosDonante->BuscarOrgano(PosicionListaOrganos)->getTipo())) {
+			return true;
+		}
+	}
+	return false;
 }

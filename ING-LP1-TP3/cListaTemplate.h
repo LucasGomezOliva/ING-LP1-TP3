@@ -14,7 +14,7 @@ protected:
 	bool allow_duplicates;
 
 public:
-	cListaTemplate(int TAM = SIZE, bool on_delete_erase = false);
+	cListaTemplate(unsigned int TAM = SIZE, bool on_delete_erase = false);
 	~cListaTemplate();
 	void Agregar(T* objeto);
 	T* Quitar(T* objeto);
@@ -26,7 +26,7 @@ public:
 };
 
 template <class T>
-inline cListaTemplate <T>::cListaTemplate(int TAM, bool on_delete_erase) {
+inline cListaTemplate <T>::cListaTemplate(unsigned int TAM, bool on_delete_erase) {
 	this->TAM = TAM;
 	CA = 0;
 	Array = new T * [TAM];

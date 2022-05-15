@@ -16,10 +16,12 @@ protected:
 	cCentroDeSalud* CentroDeSalud = NULL;
 public:
 	cPaciente();
-	cPaciente(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto);
+	cPaciente(string Nombre, string NumeroTelefono, eTipoDeSangre Sangre, int DiaNacimeinto, int MesNacimeinto, int AnioNacimeinto, int HoraNacimeinto, int MinutosNacimeinto,cCentroDeSalud*CentroDeSalud);
 	virtual ~cPaciente();
 	void SetCentroDeSalud(cCentroDeSalud* CentroDeSalud);
-	string ToStringPaciente()const;
+	eTipoDeSangre GetTipoDeSangre() const ;
+	string GetNombre() const;
+	string ToStringPaciente() const ;
 	bool operator==(const cPaciente& OtroPaciente);
 	virtual void imprimir() = 0 ;
 };
