@@ -15,7 +15,7 @@ void cINCUCAI::CargaDeCentroDeSalud(cCentroDeSalud* CentroDeSalud) {
 }
 
 
-bool cINCUCAI::RecibirPaciente(cPaciente* Paciente) {
+cPaciente* cINCUCAI::RecibirPaciente(cPaciente* Paciente) {
 
 	cDonante* DonanteAuxiliar = dynamic_cast<cDonante*> (Paciente);
 	if (DonanteAuxiliar != NULL) {
@@ -26,8 +26,8 @@ bool cINCUCAI::RecibirPaciente(cPaciente* Paciente) {
 		for (unsigned int NumeroDeOrgano = 0; NumeroDeOrgano < DonanteAuxiliar->GetCantidadOrganos(); NumeroDeOrgano++) {
 			cListaReceptores* ListaPosiblesReceptores = BuscarPosiblesReceptores(DonanteAuxiliar, NumeroDeOrgano);
 
-			cPaciente* PacienteSeleccionado = SeleccionDeReceptor(DonanteAuxiliar);
-
+			cPaciente* PacienteSeleccionado = SeleccionDeReceptor(ListaPosiblesReceptores, DonanteAuxiliar);
+			/*
 			for (unsigned int PosicionListaPosiblesReceptores = 0; PosicionListaPosiblesReceptores < ListaPosiblesReceptores->CA; PosicionListaPosiblesReceptores++) {
 				if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Urgente) {
 					//Iniciar proceso de ableacion
@@ -53,7 +53,10 @@ bool cINCUCAI::RecibirPaciente(cPaciente* Paciente) {
 					DonanteAuxiliar->QuitarOrgano(NumeroDeOrgano);
 				}
 			}
+			*/
 			delete ListaPosiblesReceptores;
+
+			return PacienteSeleccionado;
 		}
 	}
 
@@ -65,7 +68,6 @@ bool cINCUCAI::RecibirPaciente(cPaciente* Paciente) {
 		//devolver cPaciente que correspode al match
 	}
 
-	return true;
 }
 
 cListaReceptores* cINCUCAI::BuscarPosiblesReceptores(cDonante*Donante,unsigned int NumeroDeOrgano) {
@@ -81,9 +83,30 @@ cListaReceptores* cINCUCAI::BuscarPosiblesReceptores(cDonante*Donante,unsigned i
 	return ListaPosiblesReceptores;
 }
 
-cPaciente* cINCUCAI::SeleccionDeReceptor(cDonante* Donante) {
-	return NULL;
+cPaciente* cINCUCAI::SeleccionDeReceptor(cListaReceptores* ListaPosiblesReceptores, cDonante* Donante) {
+	for (unsigned int PosicionListaPosiblesReceptores = 0; PosicionListaPosiblesReceptores < ListaPosiblesReceptores->CA; PosicionListaPosiblesReceptores++) {
+		if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Urgente) {
+			return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
+		}
+
+		if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Alta) {
+			return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
+		}
+
+		if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Media) {
+			return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
+		}
+
+		if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Baja) {
+			return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
+		}
+	}
 }
+
+void cINCUCAI::ProtocoloTransporteTransplante(cReceptor* ReceptorSelecionado, cDonante* DonanteSeleccionado) {
+	DonanteSeleccionado->GetCentroDeSalud()->AsignarVehiculo(ReceptorSelecionado, DonanteSeleccionado);
+}
+
 
 string cINCUCAI::ToStringINCUCAI() const {
 	return "\n ----INCUCAI----";

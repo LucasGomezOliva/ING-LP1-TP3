@@ -34,6 +34,10 @@ public:
 		return ListaDeOrganosDonante->Quitar(ListaDeOrganosDonante->BuscarOrgano(NumeroDeOrgano));
 	}
 
+	cOrgano* QuitarOrgano(eTipoDeOrgano TipoDeOrgano) {
+		return ListaDeOrganosDonante->Quitar(ListaDeOrganosDonante->BuscarOrgano(TipoDeOrgano));
+	}
+
 	bool operator==(const cDonante& Donante) {
 		if (Nombre == Donante.GetNombre())
 			return true;

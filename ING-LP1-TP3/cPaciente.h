@@ -1,10 +1,11 @@
 #pragma once
 #include<string>
 #include "cFecha.h"
-#include"cCentroDeSalud.h"
+//#include"cCentroDeSalud.h"
 #include"cOrgano.h"
 #include"Enums.h"
 using namespace std;
+class cCentroDeSalud;
 class cPaciente
 {
 protected:
@@ -21,6 +22,7 @@ public:
 	void SetCentroDeSalud(cCentroDeSalud* CentroDeSalud);
 	eTipoDeSangre GetTipoDeSangre() const ;
 	string GetNombre() const;
+	cCentroDeSalud* GetCentroDeSalud() const;
 	string ToStringPaciente() const ;
 	bool operator==(const cPaciente& OtroPaciente);
 	virtual void imprimir() = 0 ;

@@ -48,7 +48,7 @@ int main(){
 	}
 	//INCUCAI recibe donantes
 	try {
-		INCUCAI->RecibirPaciente(Donante1);
+		cPaciente* ReceptorSelecionado = INCUCAI->RecibirPaciente(Donante1);
 	}
 	catch (exception& e) {
 		cout << e.what() << endl;

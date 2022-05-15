@@ -36,6 +36,10 @@ string cPaciente::GetNombre() const {
 	return Nombre;
 }
 
+cCentroDeSalud* cPaciente::GetCentroDeSalud() const {
+	return CentroDeSalud;
+}
+
 string cPaciente::ToStringPaciente() const {
 	return
 		"\n Nombre:" + Nombre +

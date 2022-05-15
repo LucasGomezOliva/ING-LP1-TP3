@@ -13,11 +13,10 @@ public:
 	cINCUCAI();
 	~cINCUCAI();
 	void CargaDeCentroDeSalud(cCentroDeSalud* CentroDeSalud);
-	bool RecibirPaciente(cPaciente* Paciente);
-
-	cPaciente* SeleccionDeReceptor(cDonante*Donante);
-
+	cPaciente* RecibirPaciente(cPaciente* Paciente);
+	cPaciente* SeleccionDeReceptor(cListaReceptores*ListaPosiblesReceptores,cDonante*Donante);
 	cListaReceptores* BuscarPosiblesReceptores(cDonante* Donante, unsigned int NumeroDeOrgano);
+	void ProtocoloTransporteTransplante(cReceptor* ReceptorSelecionado, cDonante* DonanteSeleccionado);
 	string ToStringINCUCAI() const;
 	void imprimir() const;
 };
