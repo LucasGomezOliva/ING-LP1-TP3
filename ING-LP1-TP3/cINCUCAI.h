@@ -13,6 +13,7 @@ public:
 	cINCUCAI();
 	~cINCUCAI();
 	void CargaDeCentroDeSalud(cCentroDeSalud* CentroDeSalud);
+	void IngresarPaciente(cPaciente* Paciente);
 	cPaciente* RecibirPaciente(cPaciente* Paciente);
 	cPaciente* SeleccionDeReceptor(cListaReceptores*ListaPosiblesReceptores,cDonante*Donante);
 	cListaReceptores* BuscarPosiblesReceptores(cDonante* Donante, unsigned int NumeroDeOrgano);

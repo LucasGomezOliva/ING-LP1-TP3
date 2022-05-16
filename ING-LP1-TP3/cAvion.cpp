@@ -1,7 +1,12 @@
 #include "cAvion.h"
-cAvion::cAvion() {
+cAvion::cAvion():cVehiculo() {
 
 }
+
+cAvion::cAvion(string IDVehiculo) : cVehiculo(IDVehiculo) {
+
+}
+
 cAvion::~cAvion() {
 
 }

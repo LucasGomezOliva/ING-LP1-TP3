@@ -6,6 +6,7 @@ class cHelicoptero:public cVehiculo
 private:
 public:
 	cHelicoptero();
+	cHelicoptero(string IDVehiculo);
 	~cHelicoptero();
 	void imprimir();
 };

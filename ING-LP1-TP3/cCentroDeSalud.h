@@ -21,9 +21,9 @@ public:
 	cCentroDeSalud();
 	cCentroDeSalud(string Nombre, string Direccion, string Partido, string Provincia, long int Telefono);
 	~cCentroDeSalud();
-	void AsignarVehiculo(cReceptor* ReceptorSelecionado, cDonante* DonanteSeleccionado);
+	cVehiculo* AsignarVehiculo(cReceptor* ReceptorSelecionado, cDonante* DonanteSeleccionado);
 	cOrgano* RealizarAblacion(cDonante* Donante,eTipoDeOrgano TipoDeOrganoParaExtraer);
-	void RealizarTransplante();
+	void RealizarTransplante(cReceptor*ReceptorSeleccionado,cVehiculo*VehiculoDeTransplante);
 	string GetPartido()const;
 	string GetProvincia() const;
 	string ToStringCentroDeSalud() const;

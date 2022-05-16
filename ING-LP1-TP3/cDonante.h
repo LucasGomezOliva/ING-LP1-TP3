@@ -35,7 +35,7 @@ public:
 	}
 
 	cOrgano* QuitarOrgano(eTipoDeOrgano TipoDeOrgano) {
-		return ListaDeOrganosDonante->Quitar(ListaDeOrganosDonante->BuscarOrgano(TipoDeOrgano));
+		return ListaDeOrganosDonante->BuscarOrgano(TipoDeOrgano);
 	}
 
 	bool operator==(const cDonante& Donante) {

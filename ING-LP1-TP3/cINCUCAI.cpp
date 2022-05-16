@@ -14,6 +14,19 @@ void cINCUCAI::CargaDeCentroDeSalud(cCentroDeSalud* CentroDeSalud) {
 	*(ListaDeCentrosDeSaludINCUCAI) + CentroDeSalud;
 }
 
+void cINCUCAI::IngresarPaciente(cPaciente* Paciente) {
+	cPaciente* PacienteAuxiliar = RecibirPaciente(Paciente);
+	//Revisa que el metodo Recibir paciente encontro o no un match
+	if (PacienteAuxiliar != NULL) {
+		//Reviso si el Paciente que devolvio la funcion es un receptror o un donante
+		cReceptor* ReceptorAuxiliar = dynamic_cast<cReceptor*> (PacienteAuxiliar);
+		//Si es un receptor inicia el protocolo de Transporte Transplante
+		if (ReceptorAuxiliar != NULL) {
+			cDonante* DonanteAuxiliar = dynamic_cast<cDonante*> (Paciente);
+			ProtocoloTransporteTransplante(ReceptorAuxiliar, DonanteAuxiliar);
+		}
+	}
+}
 
 cPaciente* cINCUCAI::RecibirPaciente(cPaciente* Paciente) {
 
@@ -33,7 +46,7 @@ cPaciente* cINCUCAI::RecibirPaciente(cPaciente* Paciente) {
 					//Iniciar proceso de ableacion
 					//return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
 					DonanteAuxiliar->QuitarOrgano(NumeroDeOrgano);
-				}
+				}--
 
 				if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Alta) {
 					//Iniciar proceso de ableacion
@@ -64,8 +77,9 @@ cPaciente* cINCUCAI::RecibirPaciente(cPaciente* Paciente) {
 	if (ReceptorAuxiliar != NULL) {
 		cout << "El paciente es un receptor" << endl;
 		*(ListaReceptoresINCUCAI) + ReceptorAuxiliar;
-		//buscar coincidencia en la lista de donantes
-		//devolver cPaciente que correspode al match
+		//---HACER---buscar coincidencia en la lista de donantes---HACER---
+		//---HACER---devolver cPaciente que correspode al match---HACER---
+		return NULL;
 	}
 
 }
@@ -104,7 +118,9 @@ cPaciente* cINCUCAI::SeleccionDeReceptor(cListaReceptores* ListaPosiblesReceptor
 }
 
 void cINCUCAI::ProtocoloTransporteTransplante(cReceptor* ReceptorSelecionado, cDonante* DonanteSeleccionado) {
-	DonanteSeleccionado->GetCentroDeSalud()->AsignarVehiculo(ReceptorSelecionado, DonanteSeleccionado);
+	cout << "Inicio de protocolo de transplante" << endl;
+	cVehiculo* VehiculoDeTransplante = DonanteSeleccionado->GetCentroDeSalud()->AsignarVehiculo(ReceptorSelecionado, DonanteSeleccionado);
+	ReceptorSelecionado->GetCentroDeSalud()->RealizarTransplante(ReceptorSelecionado, VehiculoDeTransplante);
 }
 
 

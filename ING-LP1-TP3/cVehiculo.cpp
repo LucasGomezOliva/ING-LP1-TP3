@@ -1,6 +1,10 @@
 #include "cVehiculo.h"
 cVehiculo::cVehiculo() {
+	this->IDVehiculo = "";
+}
 
+cVehiculo::cVehiculo(string IDVehiculo) {
+	this->IDVehiculo = IDVehiculo;
 }
 
 cVehiculo::~cVehiculo() {
@@ -16,4 +20,10 @@ cOrgano* cVehiculo::EntregarOrgano() {
 	OrganoAuxiliar = Organo;
 	this->Organo = NULL;
 	return OrganoAuxiliar;
+}
+
+bool cVehiculo::operator==(const cVehiculo& OtroVehiculo) {
+	if (IDVehiculo == OtroVehiculo.IDVehiculo)
+		return true;
+	return false;
 }

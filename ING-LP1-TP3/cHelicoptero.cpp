@@ -3,6 +3,10 @@ cHelicoptero::cHelicoptero() {
 
 }
 
+cHelicoptero::cHelicoptero(string IDVehiculo):cVehiculo(IDVehiculo) {
+
+}
+
 cHelicoptero::~cHelicoptero() {
 
 }
