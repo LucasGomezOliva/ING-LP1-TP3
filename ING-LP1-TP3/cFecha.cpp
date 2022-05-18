@@ -27,8 +27,18 @@ cFecha::~cFecha() {
 
 }
 
-bool cFecha::CompararFechas(cFecha* fecha) { ///comparar 2 fechas para la diferencia de 20hs
-	return true;
+bool cFecha::CompararFechas(cFecha* fecha) { ///comparar 2 fechas para la diferencia de 20h
+	int timedif = 0;
+	time_t actual = 0;
+	time(&actual);
+	time_t fecha1 = mktime(&fecha->fecha);
+	
+	timedif = difftime(fecha1, actual);
+
+	if (timedif < 72000)
+		return true;
+	else
+		return false;
 }
 
 string cFecha::to_stringFecha() const {
