@@ -77,11 +77,11 @@ cOrgano* cCentroDeSalud::RealizarAblacion(cDonante*Donante,eTipoDeOrgano TipoDeO
 	//quitar el organo de la lista de organos del donante
 	Donante->SetFechaComienzoAbleacion(1, 1, 1, 1, 1);
 	cOrgano* OrganoExtraido = Donante->QuitarOrgano(TipoDeOrganoParaExtraer);
-	OrganoExtraido->setFechaAbleacion(1, 1, 1, 1, 1);
+	OrganoExtraido->setFechaAbleacion(19, 5, 2022, 10, 20);
 	return OrganoExtraido;
 }
 
-void cCentroDeSalud::RealizarTransplante(cReceptor* ReceptorSeleccionado, cVehiculo* VehiculoDeTransplante) {
+bool cCentroDeSalud::RealizarTransplante(cReceptor* ReceptorSeleccionado, cVehiculo* VehiculoDeTransplante) {
 	//verificar que no pasaron mas de 20hs de la ableacion del organo
 	//realizar transplante
 	//random equiprobable
@@ -89,7 +89,21 @@ void cCentroDeSalud::RealizarTransplante(cReceptor* ReceptorSeleccionado, cVehic
 	//si transplante NO exitoso se setea la prioridad a urgente y su estado cambia a inestable
 
 	cout << "Vehiculo llego al Centro de Salud del Receptor" << endl;
-
+	cOrgano* OrganoParaTranpslante = VehiculoDeTransplante->EntregarOrgano();
+	if (OrganoParaTranpslante->GetFechaAbleacion()->CompararFechas(OrganoParaTranpslante->GetFechaAbleacion()) == true) {
+		ReceptorSeleccionado->SetOrganoNuevo(OrganoParaTranpslante);
+		cout << "Transplante Realizado" << endl;
+		srand((unsigned)time(NULL));
+		if ((rand() % 2) == 1) {
+			cout << "Transplante NO exitoso" << endl;
+			return false;
+		}
+		cout << "Transplante exitoso" << endl;
+		return true;
+	}
+	else{
+		cout << "Pasaron mas de 20 horas" << endl;
+	}
 }
 
 string cCentroDeSalud::GetPartido()const {

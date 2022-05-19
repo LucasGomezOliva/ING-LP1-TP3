@@ -3,6 +3,7 @@ cINCUCAI::cINCUCAI() {
 	this->ListaDonantesINCUCAI = new cListaDonantes(100, false);
 	this->ListaReceptoresINCUCAI = new cListaReceptores(100, false);
 	this->ListaDeCentrosDeSaludINCUCAI = new cListaCentrosDeSalud(30, false);
+	this->CantidadDeDonacionesPorProvincia = 0;
 }
 cINCUCAI::~cINCUCAI() {
 	delete ListaDonantesINCUCAI;
@@ -25,7 +26,18 @@ void cINCUCAI::IngresarPaciente(cPaciente* Paciente) {
 			cDonante* DonanteAuxiliar = dynamic_cast<cDonante*> (Paciente);
 			ProtocoloTransporteTransplante(ReceptorAuxiliar, DonanteAuxiliar);
 		}
+		//add revisar------------------
+		//Si es un donante inicio el protocolo de Transporte Transplante
+		/*
+		cDonante* DonanteAuxiliar = dynamic_cast<cDonante*> (PacienteAuxiliar);
+		if (DonanteAuxiliar != NULL) {
+			cReceptor* RecepetorAuxiliar = dynamic_cast<cReceptor*> (Paciente);
+			ProtocoloTransporteTransplante(RecepetorAuxiliar, DonanteAuxiliar);
+		}
+		*/
+		//add revisar------------------
 	}
+
 }
 
 cPaciente* cINCUCAI::RecibirPaciente(cPaciente* Paciente) {
@@ -35,40 +47,10 @@ cPaciente* cINCUCAI::RecibirPaciente(cPaciente* Paciente) {
 		cout << "El paciente es un donante" << endl;
 		*(ListaDonantesINCUCAI) + DonanteAuxiliar;
 		// metodo buscar los posibles receptores -- devolver sublista por cada organo a donar
-
 		for (unsigned int NumeroDeOrgano = 0; NumeroDeOrgano < DonanteAuxiliar->GetCantidadOrganos(); NumeroDeOrgano++) {
 			cListaReceptores* ListaPosiblesReceptores = BuscarPosiblesReceptores(DonanteAuxiliar, NumeroDeOrgano);
-
 			cPaciente* PacienteSeleccionado = SeleccionDeReceptor(ListaPosiblesReceptores, DonanteAuxiliar);
-			/*
-			for (unsigned int PosicionListaPosiblesReceptores = 0; PosicionListaPosiblesReceptores < ListaPosiblesReceptores->CA; PosicionListaPosiblesReceptores++) {
-				if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Urgente) {
-					//Iniciar proceso de ableacion
-					//return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
-					DonanteAuxiliar->QuitarOrgano(NumeroDeOrgano);
-				}--
-
-				if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Alta) {
-					//Iniciar proceso de ableacion
-					//return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
-					DonanteAuxiliar->QuitarOrgano(NumeroDeOrgano);
-				}
-
-				if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Media) {
-					//Iniciar proceso de ableacion
-					//return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
-					DonanteAuxiliar->QuitarOrgano(NumeroDeOrgano);
-				}
-
-				if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Baja) {
-					//Iniciar proceso de ableacion
-					//return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
-					DonanteAuxiliar->QuitarOrgano(NumeroDeOrgano);
-				}
-			}
-			*/
 			delete ListaPosiblesReceptores;
-
 			return PacienteSeleccionado;
 		}
 	}
@@ -77,8 +59,13 @@ cPaciente* cINCUCAI::RecibirPaciente(cPaciente* Paciente) {
 	if (ReceptorAuxiliar != NULL) {
 		cout << "El paciente es un receptor" << endl;
 		*(ListaReceptoresINCUCAI) + ReceptorAuxiliar;
-		//---HACER---buscar coincidencia en la lista de donantes---HACER---
-		//---HACER---devolver cPaciente que correspode al match---HACER---
+		//add revisar -- buscar coincidencia en la lista de donantes--
+		for (unsigned int PosicionListaDeDonantesINCUCAI = 0; PosicionListaDeDonantesINCUCAI < ListaDonantesINCUCAI->CA; PosicionListaDeDonantesINCUCAI++) {
+			if (*((*ListaDonantesINCUCAI)[PosicionListaDeDonantesINCUCAI])==*(ReceptorAuxiliar)) {
+				return (*ListaDonantesINCUCAI)[PosicionListaDeDonantesINCUCAI];
+			}
+		}
+		//add revisar -- devolver cPaciente que correspode al match--
 		return NULL;
 	}
 
@@ -88,9 +75,10 @@ cListaReceptores* cINCUCAI::BuscarPosiblesReceptores(cDonante*Donante,unsigned i
 	//devolver sublista por cada organo a donar
 	cListaReceptores* ListaPosiblesReceptores = new cListaReceptores(100, false);
 	for (unsigned int i = 0; i < ListaReceptoresINCUCAI->CA; i++) {
-		//if (ListaReceptoresINCUCAI->Array[i]->GetOrganoRecibir() == Donante->GetOrgano(NumeroDeOrgano) && ListaReceptoresINCUCAI->Array[i]->GetTipoDeSangre()==Donante->GetTipoDeSangre()) {
-		if(*(Donante) == *(ListaReceptoresINCUCAI->Array[i])){
-			ListaPosiblesReceptores->Agregar(ListaReceptoresINCUCAI->Array[i]);
+		//if(*(Donante) == *(ListaReceptoresINCUCAI->Array[i])){
+		if (*(Donante) == *((*ListaReceptoresINCUCAI)[i])) {
+			//ListaPosiblesReceptores->Agregar(ListaReceptoresINCUCAI->Array[i]);
+			ListaPosiblesReceptores->Agregar((*ListaReceptoresINCUCAI)[i]);
 			cout << "Receptor compatible encontrado para: "<<TipoDeOrganoToString(Donante->GetOrgano(NumeroDeOrgano)->getTipo()) << endl;
 		}
 	}
@@ -99,20 +87,21 @@ cListaReceptores* cINCUCAI::BuscarPosiblesReceptores(cDonante*Donante,unsigned i
 
 cPaciente* cINCUCAI::SeleccionDeReceptor(cListaReceptores* ListaPosiblesReceptores, cDonante* Donante) {
 	for (unsigned int PosicionListaPosiblesReceptores = 0; PosicionListaPosiblesReceptores < ListaPosiblesReceptores->CA; PosicionListaPosiblesReceptores++) {
-		if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Urgente) {
-			return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
+		//if ((*ListaPosiblesReceptores)[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Urgente)
+		//if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Urgente){
+		//return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
+		//}
+		if ((*ListaPosiblesReceptores)[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Urgente) {
+			return (*ListaPosiblesReceptores)[PosicionListaPosiblesReceptores];
 		}
-
-		if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Alta) {
-			return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
+		if ((*ListaPosiblesReceptores)[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Alta) {
+			return (*ListaPosiblesReceptores)[PosicionListaPosiblesReceptores];
 		}
-
-		if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Media) {
-			return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
+		if ((*ListaPosiblesReceptores)[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Media) {
+			return (*ListaPosiblesReceptores)[PosicionListaPosiblesReceptores];
 		}
-
-		if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Baja) {
-			return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
+		if ((*ListaPosiblesReceptores)[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Baja) {
+			return (*ListaPosiblesReceptores)[PosicionListaPosiblesReceptores];
 		}
 	}
 }
@@ -120,13 +109,43 @@ cPaciente* cINCUCAI::SeleccionDeReceptor(cListaReceptores* ListaPosiblesReceptor
 void cINCUCAI::ProtocoloTransporteTransplante(cReceptor* ReceptorSelecionado, cDonante* DonanteSeleccionado) {
 	cout << "Inicio de protocolo de transplante" << endl;
 	cVehiculo* VehiculoDeTransplante = DonanteSeleccionado->GetCentroDeSalud()->AsignarVehiculo(ReceptorSelecionado, DonanteSeleccionado);
-	ReceptorSelecionado->GetCentroDeSalud()->RealizarTransplante(ReceptorSelecionado, VehiculoDeTransplante);
+	if (VehiculoDeTransplante != NULL) {
+		VehiculoDeTransplante->imprimir();
+		if (ReceptorSelecionado->GetCentroDeSalud()->RealizarTransplante(ReceptorSelecionado, VehiculoDeTransplante) == false) {
+			ReceptorSelecionado->SetEstado(eEstadoReceptor::Inestable);
+			ReceptorSelecionado->SetPrioridad(ePrioridad::Urgente);
+			this->CantidadDeDonacionesPorProvincia++;
+		}
+		else {
+			ListaReceptoresINCUCAI->Quitar(ReceptorSelecionado);
+			this->CantidadDeDonacionesPorProvincia++;
+			cout << "Receptor eliminado de la lista del INCUCAI" << endl;
+		}
+	}
 }
 
+void cINCUCAI::BuscarReceptorinformarDatos(string NombreReceptor) {
+	ListaReceptoresINCUCAI->InformarDatosReceptor(NombreReceptor);
+}
 
 string cINCUCAI::ToStringINCUCAI() const {
-	return "\n ----INCUCAI----";
+	return "\n ----INCUCAI---\nCantidad de Donaciones en provincia:\t" + to_string(CantidadDeDonacionesPorProvincia);
 }
 void cINCUCAI::imprimir() const {
+	ImprimirListas();
 	cout << ToStringINCUCAI() << endl;
+}
+
+void cINCUCAI::ImprimirListas() const{
+	cout << "\n Lista de Receptores" << endl;
+	this->ListaReceptoresINCUCAI->Listar();
+	cout << "\n Lista de Donantes" << endl;
+	this->ListaDonantesINCUCAI->Listar();
+	cout << "\n Lista de Centros de Salud" << endl;
+	this->ListaDeCentrosDeSaludINCUCAI->Listar();
+}
+
+ostream& operator<<(ostream& os, const cINCUCAI* incucai) {
+	os << incucai->ToStringINCUCAI();
+	return os;
 }

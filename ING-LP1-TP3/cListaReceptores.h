@@ -12,7 +12,8 @@ public:
 	cListaReceptores();
 	cListaReceptores(unsigned int TamanioLista, bool on_delete_erase);
 	~cListaReceptores();
-	cReceptor* BuscarReceptor(cOrgano* OrganoRecibir);
+	cReceptor* QuitarReceptor(cOrgano* OrganoRecibir);
 	cReceptor* BuscarReceptor(string NombreRecpetor);
+	void InformarDatosReceptor(string Nombre);
 };
 

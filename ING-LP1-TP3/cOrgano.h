@@ -13,6 +13,7 @@ public:
 	virtual~cOrgano();
 	eTipoDeOrgano getTipo() const { return Organo; };
 	void setFechaAbleacion(int DiaAbleacion, int MesAbleacion, int AnioAbleacion, int HoraAbleacion, int MinutosAbleacion);
+	cFecha* GetFechaAbleacion();
 	bool operator==(const cOrgano& OtroOrgano);
 	friend ostream& operator<<(ostream& os, const cOrgano* organo);
 	

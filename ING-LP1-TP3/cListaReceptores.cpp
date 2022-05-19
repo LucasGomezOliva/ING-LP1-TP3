@@ -11,7 +11,7 @@ cListaReceptores::~cListaReceptores() {
 
 }
 
-cReceptor* cListaReceptores::BuscarReceptor(cOrgano* OrganoRecibir) {
+cReceptor* cListaReceptores::QuitarReceptor(cOrgano* OrganoRecibir) {
 	for (unsigned int i = 0; i < CA; i++) {
 		if (Array[i] != NULL) {
 			return NULL;
@@ -27,3 +27,12 @@ cReceptor* cListaReceptores::BuscarReceptor(string NombreRecpetor) {
 	}
 	return NULL;
 }
+
+void cListaReceptores::InformarDatosReceptor(string Nombre) {
+	for (unsigned int i = 0; i < CA; i++) {
+		if (Array[i]->GetNombre() == Nombre) {
+			Array[i]->imprimir();
+		}
+	}
+}
+

@@ -26,6 +26,11 @@ void cReceptor::SetPrioridad(ePrioridad NuevaPrioridad) {
 	this->PrioridadReceptor = NuevaPrioridad;
 }
 
+void cReceptor::SetOrganoNuevo(cOrgano* NuevoOrgano) {
+	delete OrganoRecibir;
+	this->OrganoRecibir = NuevoOrgano;
+}
+
 cOrgano* cReceptor::GetOrganoRecibir() {
 	return OrganoRecibir;
 }

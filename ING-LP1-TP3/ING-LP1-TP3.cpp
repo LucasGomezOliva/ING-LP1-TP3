@@ -15,10 +15,10 @@ int main(){
 	cCentroDeSalud* CentroDeSalud2 = new cCentroDeSalud("Centro2", "Direccion2", "Partido1", "Provincia1", 22222);
 	cCentroDeSalud* CentroDeSalud3 = new cCentroDeSalud("Centro3", "Direccion3", "Partido1", "Provincia1", 33333);
 	//Donantes
-	cDonante* Donante1 = new cDonante("nombre01", "1111", eTipoDeSangre::AB_Negativo, 1, 1, 2000, 1, 1, CentroDeSalud1, 5, 5, 2030, 16, 26);
-	cDonante* Donante2 = new cDonante("nombre02", "2222", eTipoDeSangre::AB_Negativo, 1, 1, 2000, 1, 1, CentroDeSalud2, 5, 5, 2030, 20, 30);
+	cDonante* Donante1 = new cDonante("Nombre Donante 1 ", "1111", eTipoDeSangre::AB_Negativo, 1, 1, 2000, 1, 1, CentroDeSalud1, 5, 5, 2030, 16, 26);
+	cDonante* Donante2 = new cDonante("Nombre Donante 2 ", "2222", eTipoDeSangre::AB_Negativo, 1, 1, 2000, 1, 1, CentroDeSalud2, 5, 5, 2030, 20, 30);
 	//Recpetores
-	cReceptor* Receptor1 = new cReceptor("nombre", "123", eTipoDeSangre::AB_Negativo, 16, 02, 2000, 16, 50, CentroDeSalud3, 1, 01, 2020, 16, 50, ePrioridad::Alta, "Patologia", eEstadoReceptor::Estable, eTipoDeOrgano::Corazon);
+	cReceptor* Receptor1 = new cReceptor("Nombre Recpetor 1 ", "123", eTipoDeSangre::AB_Negativo, 16, 02, 2000, 16, 50, CentroDeSalud3, 1, 01, 2020, 16, 50, ePrioridad::Alta, "Patologia", eEstadoReceptor::Estable, eTipoDeOrgano::Corazon);
 	
 	//Carga Centros de salud en INCUCAI
 	try {
@@ -46,13 +46,17 @@ int main(){
 	catch (exception& e) {
 		cout << e.what() << endl;
 	}
-	//INCUCAI recibe donantes
+	//Bucar un receptor en la lista de receptores e informar sus datos
+	INCUCAI->BuscarReceptorinformarDatos("123");
+
 	try {
 		INCUCAI->IngresarPaciente(Donante1);
 	}
 	catch (exception& e) {
 		cout << e.what() << endl;
 	}
+	cout << INCUCAI;
+	INCUCAI->imprimir();
 	delete Donante1;
 	delete Donante2;
 	delete Receptor1;

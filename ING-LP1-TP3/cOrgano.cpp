@@ -15,6 +15,10 @@ void cOrgano::setFechaAbleacion(int DiaAbleacion, int MesAbleacion, int AnioAble
 	this->FechaAbleacion = new cFecha(DiaAbleacion, MesAbleacion, AnioAbleacion, HoraAbleacion, MinutosAbleacion);
 }
 
+cFecha* cOrgano::GetFechaAbleacion() {
+	return FechaAbleacion;
+}
+
 bool cOrgano::operator==(const cOrgano& OtroOrgano) {
 	if (Organo == OtroOrgano.getTipo()) {
 		return true;

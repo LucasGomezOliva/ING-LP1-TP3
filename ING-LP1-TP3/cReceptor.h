@@ -19,6 +19,7 @@ public:
 	//gets y sets
 	void SetEstado(eEstadoReceptor NuevoEstado);
 	void SetPrioridad(ePrioridad NuevaPrioridad);
+	void SetOrganoNuevo(cOrgano* NuevoOrgano);
 	cOrgano* GetOrganoRecibir();
 	ePrioridad GetPrioridadReceptor();
 	//ToString e imprimir

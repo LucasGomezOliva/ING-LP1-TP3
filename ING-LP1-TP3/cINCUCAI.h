@@ -9,6 +9,7 @@ private:
 	cListaReceptores* ListaReceptoresINCUCAI = NULL;
 	cListaDonantes* ListaDonantesINCUCAI = NULL;
 	cListaCentrosDeSalud* ListaDeCentrosDeSaludINCUCAI = NULL;
+	int CantidadDeDonacionesPorProvincia;
 public:
 	cINCUCAI();
 	~cINCUCAI();
@@ -18,7 +19,10 @@ public:
 	cPaciente* SeleccionDeReceptor(cListaReceptores*ListaPosiblesReceptores,cDonante*Donante);
 	cListaReceptores* BuscarPosiblesReceptores(cDonante* Donante, unsigned int NumeroDeOrgano);
 	void ProtocoloTransporteTransplante(cReceptor* ReceptorSelecionado, cDonante* DonanteSeleccionado);
+	void BuscarReceptorinformarDatos(string NombreReceptor);
 	string ToStringINCUCAI() const;
+	void ImprimirListas() const;
 	void imprimir() const;
+	friend ostream& operator<<(ostream& os, const cINCUCAI* incucai);
 };
 
