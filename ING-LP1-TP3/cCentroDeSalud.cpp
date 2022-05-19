@@ -87,7 +87,6 @@ bool cCentroDeSalud::RealizarTransplante(cReceptor* ReceptorSeleccionado, cVehic
 	//random equiprobable
 	//si transplante exitoso se remuebe el paciente de la lista de pacientes receptores
 	//si transplante NO exitoso se setea la prioridad a urgente y su estado cambia a inestable
-
 	cout << "Vehiculo llego al Centro de Salud del Receptor" << endl;
 	cOrgano* OrganoParaTranpslante = VehiculoDeTransplante->EntregarOrgano();
 	if (OrganoParaTranpslante->GetFechaAbleacion()->CompararFechas(OrganoParaTranpslante->GetFechaAbleacion()) == true) {

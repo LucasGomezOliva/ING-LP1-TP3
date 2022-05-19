@@ -40,9 +40,10 @@ bool cFecha::CompararFechas(cFecha* fecha) { ///comparar 2 fechas para la difere
 }
 
 string cFecha::to_stringFecha() const {
-	return "\tFecha: " + to_string(fecha.tm_wday) + "/" + to_string(fecha.tm_mon + 1) + "/" + to_string(fecha.tm_year + 1900) +
+	return "\tFecha: " + to_string(fecha.tm_mday) + "/" + to_string(fecha.tm_mon + 1) + "/" + to_string(fecha.tm_year + 1900) +
 		"\t Hora:" + to_string(fecha.tm_hour) + ":" + to_string(fecha.tm_min);
 }
+
 void cFecha::imprimir() const {
 	cout << to_stringFecha() << endl;
 }
