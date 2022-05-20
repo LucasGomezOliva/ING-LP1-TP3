@@ -35,4 +35,13 @@ void cListaReceptores::InformarDatosReceptor(string Nombre) {
 		}
 	}
 }
-
+ostream& operator<<(ostream& os, const cListaReceptores* ListaReceptores) {
+	string Auxiliar;
+	for (unsigned int i = 0; i < ListaReceptores->CA; i++) {
+		if (ListaReceptores->Array[i] != NULL) {
+			Auxiliar = Auxiliar + ListaReceptores->Array[i]->ToStringReceptor() + "\n";
+		}
+	}
+	os << Auxiliar;
+	return os;
+}

@@ -28,13 +28,13 @@ void cINCUCAI::IngresarPaciente(cPaciente* Paciente) {
 		}
 		//add revisar------------------
 		//Si es un donante inicio el protocolo de Transporte Transplante
-		/*
+		
 		cDonante* DonanteAuxiliar = dynamic_cast<cDonante*> (PacienteAuxiliar);
 		if (DonanteAuxiliar != NULL) {
 			cReceptor* RecepetorAuxiliar = dynamic_cast<cReceptor*> (Paciente);
 			ProtocoloTransporteTransplante(RecepetorAuxiliar, DonanteAuxiliar);
 		}
-		*/
+		
 		//add revisar------------------
 	}
 
@@ -46,7 +46,6 @@ cPaciente* cINCUCAI::RecibirPaciente(cPaciente* Paciente) {
 	if (DonanteAuxiliar != NULL) {
 		cout << "El paciente es un donante" << endl;
 		*(ListaDonantesINCUCAI) + DonanteAuxiliar;
-		// metodo buscar los posibles receptores -- devolver sublista por cada organo a donar
 		for (unsigned int NumeroDeOrgano = 0; NumeroDeOrgano < DonanteAuxiliar->GetCantidadOrganos(); NumeroDeOrgano++) {
 			cListaReceptores* ListaPosiblesReceptores = BuscarPosiblesReceptores(DonanteAuxiliar, NumeroDeOrgano);
 			cPaciente* PacienteSeleccionado = SeleccionDeReceptor(ListaPosiblesReceptores, DonanteAuxiliar);
@@ -59,6 +58,7 @@ cPaciente* cINCUCAI::RecibirPaciente(cPaciente* Paciente) {
 	if (ReceptorAuxiliar != NULL) {
 		cout << "El paciente es un receptor" << endl;
 		*(ListaReceptoresINCUCAI) + ReceptorAuxiliar;
+
 		//add revisar -- buscar coincidencia en la lista de donantes--
 		for (unsigned int PosicionListaDeDonantesINCUCAI = 0; PosicionListaDeDonantesINCUCAI < ListaDonantesINCUCAI->CA; PosicionListaDeDonantesINCUCAI++) {
 			if (*((*ListaDonantesINCUCAI)[PosicionListaDeDonantesINCUCAI])==*(ReceptorAuxiliar)) {
@@ -72,12 +72,9 @@ cPaciente* cINCUCAI::RecibirPaciente(cPaciente* Paciente) {
 }
 
 cListaReceptores* cINCUCAI::BuscarPosiblesReceptores(cDonante*Donante,unsigned int NumeroDeOrgano) {
-	//devolver sublista por cada organo a donar
 	cListaReceptores* ListaPosiblesReceptores = new cListaReceptores(100, false);
 	for (unsigned int i = 0; i < ListaReceptoresINCUCAI->CA; i++) {
-		//if(*(Donante) == *(ListaReceptoresINCUCAI->Array[i])){
 		if (*(Donante) == *((*ListaReceptoresINCUCAI)[i])) {
-			//ListaPosiblesReceptores->Agregar(ListaReceptoresINCUCAI->Array[i]);
 			ListaPosiblesReceptores->Agregar((*ListaReceptoresINCUCAI)[i]);
 			cout << "Receptor compatible encontrado para: "<<TipoDeOrganoToString(Donante->GetOrgano(NumeroDeOrgano)->getTipo()) << endl;
 		}
@@ -87,10 +84,6 @@ cListaReceptores* cINCUCAI::BuscarPosiblesReceptores(cDonante*Donante,unsigned i
 
 cPaciente* cINCUCAI::SeleccionDeReceptor(cListaReceptores* ListaPosiblesReceptores, cDonante* Donante) {
 	for (unsigned int PosicionListaPosiblesReceptores = 0; PosicionListaPosiblesReceptores < ListaPosiblesReceptores->CA; PosicionListaPosiblesReceptores++) {
-		//if ((*ListaPosiblesReceptores)[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Urgente)
-		//if (ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Urgente){
-		//return ListaPosiblesReceptores->Array[PosicionListaPosiblesReceptores];
-		//}
 		if ((*ListaPosiblesReceptores)[PosicionListaPosiblesReceptores]->GetPrioridadReceptor() == ePrioridad::Urgente) {
 			return (*ListaPosiblesReceptores)[PosicionListaPosiblesReceptores];
 		}
@@ -114,11 +107,15 @@ void cINCUCAI::ProtocoloTransporteTransplante(cReceptor* ReceptorSelecionado, cD
 		if (ReceptorSelecionado->GetCentroDeSalud()->RealizarTransplante(ReceptorSelecionado, VehiculoDeTransplante) == false) {
 			ReceptorSelecionado->SetEstado(eEstadoReceptor::Inestable);
 			ReceptorSelecionado->SetPrioridad(ePrioridad::Urgente);
+
 			this->CantidadDeDonacionesPorProvincia++;
+
 		}
 		else {
-			ListaReceptoresINCUCAI->Quitar(ReceptorSelecionado);
+			*(ListaReceptoresINCUCAI) - ReceptorSelecionado;
+
 			this->CantidadDeDonacionesPorProvincia++;
+
 			cout << "Receptor eliminado de la lista del INCUCAI" << endl;
 		}
 	}
@@ -138,11 +135,11 @@ void cINCUCAI::imprimir() const {
 
 void cINCUCAI::ImprimirListas() const{
 	cout << "\n Lista de Receptores" << endl;
-	this->ListaReceptoresINCUCAI->Listar();
+	cout << ListaReceptoresINCUCAI << endl;
 	cout << "\n Lista de Donantes" << endl;
-	this->ListaDonantesINCUCAI->Listar();
+	cout << ListaDonantesINCUCAI;
 	cout << "\n Lista de Centros de Salud" << endl;
-	this->ListaDeCentrosDeSaludINCUCAI->Listar();
+	cout << ListaDeCentrosDeSaludINCUCAI;
 }
 
 ostream& operator<<(ostream& os, const cINCUCAI* incucai) {

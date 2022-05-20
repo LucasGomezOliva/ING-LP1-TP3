@@ -24,15 +24,8 @@ cCentroDeSalud::~cCentroDeSalud() {
 }
 
 cVehiculo* cCentroDeSalud::AsignarVehiculo(cReceptor* ReceptorSelecionado, cDonante* DonanteSeleccionado) {
-	//Asignar vehiculo 
-	//si misma provincia y mismo partido envia -- ambulancia
-	//si misma provincia y distinto partido -- helicoptero
-	//si distinta provincia -- avion
-
 	cout << "Asignando Vehiculo" << endl;
-
 	if (Provincia == ReceptorSelecionado->GetCentroDeSalud()->GetProvincia() && Partido == ReceptorSelecionado->GetCentroDeSalud()->GetPartido()) {
-		//enviar ambulacia
 		for (unsigned int PosicionListaDeVehiculosDisponibles = 0; PosicionListaDeVehiculosDisponibles < ListaDeVehiculosDisponibles->CA; PosicionListaDeVehiculosDisponibles++) {
 			cAmbulancia* AmbulanciaAuxiliar = dynamic_cast<cAmbulancia*> (ListaDeVehiculosDisponibles->Array[PosicionListaDeVehiculosDisponibles]);
 			if (AmbulanciaAuxiliar != NULL) {
@@ -42,9 +35,7 @@ cVehiculo* cCentroDeSalud::AsignarVehiculo(cReceptor* ReceptorSelecionado, cDona
 			}
 		}
 	}
-
 	if (Provincia == ReceptorSelecionado->GetCentroDeSalud()->GetProvincia() && Partido != ReceptorSelecionado->GetCentroDeSalud()->GetPartido()) {
-		//enviar Helicoptero
 		for (unsigned int PosicionListaDeVehiculosDisponibles = 0; PosicionListaDeVehiculosDisponibles < ListaDeVehiculosDisponibles->CA; PosicionListaDeVehiculosDisponibles++) {
 			cHelicoptero* HelicopteroAuxiliar = dynamic_cast<cHelicoptero*> (ListaDeVehiculosDisponibles->Array[PosicionListaDeVehiculosDisponibles]);
 			if (HelicopteroAuxiliar != NULL) {
@@ -54,9 +45,7 @@ cVehiculo* cCentroDeSalud::AsignarVehiculo(cReceptor* ReceptorSelecionado, cDona
 			}
 		}
 	}
-
 	if (Provincia != ReceptorSelecionado->GetCentroDeSalud()->GetProvincia() && Partido != ReceptorSelecionado->GetCentroDeSalud()->GetPartido()) {
-		//enviar Avion
 		for (unsigned int PosicionListaDeVehiculosDisponibles = 0; PosicionListaDeVehiculosDisponibles < ListaDeVehiculosDisponibles->CA; PosicionListaDeVehiculosDisponibles++) {
 			cAvion* AvionAuxiliar = dynamic_cast<cAvion*> (ListaDeVehiculosDisponibles->Array[PosicionListaDeVehiculosDisponibles]);
 			if (AvionAuxiliar != NULL) {
@@ -72,21 +61,13 @@ cVehiculo* cCentroDeSalud::AsignarVehiculo(cReceptor* ReceptorSelecionado, cDona
 }
 
 cOrgano* cCentroDeSalud::RealizarAblacion(cDonante*Donante,eTipoDeOrgano TipoDeOrganoParaExtraer) {
-	//setear fecha de ableacion en el donante
-	//setear fecha de ableacion en el organo extraido
-	//quitar el organo de la lista de organos del donante
-	Donante->SetFechaComienzoAbleacion(1, 1, 1, 1, 1);
+	Donante->SetFechaComienzoAbleacion(20, 5, 2022, 10, 20);
 	cOrgano* OrganoExtraido = Donante->QuitarOrgano(TipoDeOrganoParaExtraer);
-	OrganoExtraido->setFechaAbleacion(19, 5, 2022, 10, 20);
+	OrganoExtraido->setFechaAbleacion(20, 5, 2022, 10, 20);
 	return OrganoExtraido;
 }
 
 bool cCentroDeSalud::RealizarTransplante(cReceptor* ReceptorSeleccionado, cVehiculo* VehiculoDeTransplante) {
-	//verificar que no pasaron mas de 20hs de la ableacion del organo
-	//realizar transplante
-	//random equiprobable
-	//si transplante exitoso se remuebe el paciente de la lista de pacientes receptores
-	//si transplante NO exitoso se setea la prioridad a urgente y su estado cambia a inestable
 	cout << "Vehiculo llego al Centro de Salud del Receptor" << endl;
 	cOrgano* OrganoParaTranpslante = VehiculoDeTransplante->EntregarOrgano();
 	if (OrganoParaTranpslante->GetFechaAbleacion()->CompararFechas(OrganoParaTranpslante->GetFechaAbleacion()) == true) {

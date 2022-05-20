@@ -24,6 +24,16 @@ cDonante::~cDonante() {
 	delete ListaDeOrganosDonante;
 }
 
+
+cOrgano* cDonante::QuitarOrgano(unsigned int NumeroDeOrgano) {
+	return ListaDeOrganosDonante->Quitar(ListaDeOrganosDonante->BuscarOrgano(NumeroDeOrgano));
+}
+
+cOrgano* cDonante::QuitarOrgano(eTipoDeOrgano TipoDeOrgano) {
+	return ListaDeOrganosDonante->BuscarOrgano(TipoDeOrgano);
+}
+
+
 void cDonante::SetFallecimiento(int DiaFallecimiento, int MesFallecimiento, int AnioFallecimiento, int HoraFallecimiento, int MinutosFallecimiento) {
 	this->FechaFalleciemiento = new cFecha(DiaFallecimiento, MesFallecimiento, AnioFallecimiento, HoraFallecimiento, MinutosFallecimiento);
 }
@@ -68,5 +78,11 @@ bool cDonante::operator==(cReceptor& Receptor) {
 			return true;
 		}
 	}
+	return false;
+}
+
+bool cDonante::operator==(const cDonante& Donante) {
+	if (Nombre == Donante.GetNombre())
+		return true;
 	return false;
 }

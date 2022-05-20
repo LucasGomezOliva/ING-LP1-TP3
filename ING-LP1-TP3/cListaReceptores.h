@@ -15,5 +15,6 @@ public:
 	cReceptor* QuitarReceptor(cOrgano* OrganoRecibir);
 	cReceptor* BuscarReceptor(string NombreRecpetor);
 	void InformarDatosReceptor(string Nombre);
+	friend ostream& operator<<(ostream& os, const cListaReceptores* ListaReceptores);
 };
 

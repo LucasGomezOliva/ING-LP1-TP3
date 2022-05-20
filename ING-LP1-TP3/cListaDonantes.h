@@ -11,5 +11,6 @@ public:
 	cListaDonantes();
 	cListaDonantes(unsigned int TamanioLista, bool on_delete_erase);
 	~cListaDonantes();
+	friend ostream& operator<<(ostream& os, const cListaDonantes* ListaDonantes);
 };
 

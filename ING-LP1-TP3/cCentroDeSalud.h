@@ -23,7 +23,7 @@ public:
 	~cCentroDeSalud();
 	cVehiculo* AsignarVehiculo(cReceptor* ReceptorSelecionado, cDonante* DonanteSeleccionado);
 	cOrgano* RealizarAblacion(cDonante* Donante,eTipoDeOrgano TipoDeOrganoParaExtraer);
-	bool RealizarTransplante(cReceptor*ReceptorSeleccionado,cVehiculo*VehiculoDeTransplante);
+	bool RealizarTransplante(cReceptor* ReceptorSeleccionado, cVehiculo* VehiculoDeTransplante);
 	string GetPartido()const;
 	string GetProvincia() const;
 	string ToStringCentroDeSalud() const;

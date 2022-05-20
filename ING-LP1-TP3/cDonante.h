@@ -30,19 +30,10 @@ public:
 	//Sobrecarga de operadores
 	friend ostream& operator<<(ostream& os, const cDonante* donante);
 
-	cOrgano* QuitarOrgano(unsigned int NumeroDeOrgano) {
-		return ListaDeOrganosDonante->Quitar(ListaDeOrganosDonante->BuscarOrgano(NumeroDeOrgano));
-	}
+	cOrgano* QuitarOrgano(unsigned int NumeroDeOrgano);
+	cOrgano* QuitarOrgano(eTipoDeOrgano TipoDeOrgano);
 
-	cOrgano* QuitarOrgano(eTipoDeOrgano TipoDeOrgano) {
-		return ListaDeOrganosDonante->BuscarOrgano(TipoDeOrgano);
-	}
-
-	bool operator==(const cDonante& Donante) {
-		if (Nombre == Donante.GetNombre())
-			return true;
-		return false;
-	}
+	bool operator==(const cDonante& Donante);
 	bool operator==(cReceptor& Receptor);
 
 };

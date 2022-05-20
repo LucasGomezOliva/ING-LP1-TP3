@@ -9,5 +9,6 @@ public:
 	cListaCentrosDeSalud();
 	cListaCentrosDeSalud(unsigned int TamanioLista, bool on_delete_erase);
 	~cListaCentrosDeSalud();
+	friend ostream& operator<<(ostream& os, const cListaCentrosDeSalud* ListaCentroDeSalud);
 };
 
