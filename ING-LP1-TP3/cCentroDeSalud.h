@@ -28,7 +28,6 @@ public:
 	string GetProvincia() const;
 	string ToStringCentroDeSalud() const;
 	void imprimir() const;
-	//Sobrecarga de operadores
 	friend ostream& operator<<(ostream& os, const cCentroDeSalud* CentroDeSalud);
 	bool operator==(const cCentroDeSalud& OtroCentroDeSalud);
 };

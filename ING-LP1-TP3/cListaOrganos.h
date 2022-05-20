@@ -4,8 +4,6 @@
 using namespace std;
 class cListaOrganos:public cListaTemplate<cOrgano>
 {
-private:
-
 public:
 	friend class cDonante;
 	cListaOrganos();

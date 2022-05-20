@@ -72,7 +72,6 @@ ostream& operator<<(ostream& os, const cDonante* donante) {
 }
 
 bool cDonante::operator==(cReceptor& Receptor) {
-	//ListaReceptoresINCUCAI->Array[i]->GetOrganoRecibir() == Donante->GetOrgano(NumeroDeOrgano) && ListaReceptoresINCUCAI->Array[i]->GetTipoDeSangre()==Donante->GetTipoDeSangre()
 	for (unsigned int PosicionListaOrganos = 0; PosicionListaOrganos < ListaDeOrganosDonante->CA; PosicionListaOrganos++) {
 		if ((Receptor.GetTipoDeSangre() == Sangre) && (Receptor.GetOrganoRecibir()->getTipo() == ListaDeOrganosDonante->BuscarOrgano(PosicionListaOrganos)->getTipo())) {
 			return true;

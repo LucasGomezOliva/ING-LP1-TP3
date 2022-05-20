@@ -16,6 +16,5 @@ public:
 	cFecha* GetFechaAbleacion();
 	bool operator==(const cOrgano& OtroOrgano);
 	friend ostream& operator<<(ostream& os, const cOrgano* organo);
-	
 };
 

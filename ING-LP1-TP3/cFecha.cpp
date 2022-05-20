@@ -27,7 +27,7 @@ cFecha::~cFecha() {
 
 }
 
-bool cFecha::CompararFechas(cFecha* fecha) { ///comparar 2 fechas para la diferencia de 20h
+bool cFecha::CompararFechas(cFecha* fecha) {
 	int timedif = 0;
 	time_t FechaActual = 0;
 	time(&FechaActual);

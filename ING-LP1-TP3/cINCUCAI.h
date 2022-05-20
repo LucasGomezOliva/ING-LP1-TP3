@@ -9,7 +9,7 @@ private:
 	cListaReceptores* ListaReceptoresINCUCAI = NULL;
 	cListaDonantes* ListaDonantesINCUCAI = NULL;
 	cListaCentrosDeSalud* ListaDeCentrosDeSaludINCUCAI = NULL;
-	int CantidadDeDonacionesPorProvincia;
+	int CantidadDeDonaciones;
 public:
 	cINCUCAI();
 	~cINCUCAI();

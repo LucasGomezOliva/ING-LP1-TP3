@@ -24,12 +24,10 @@ cCentroDeSalud::~cCentroDeSalud() {
 }
 
 cVehiculo* cCentroDeSalud::AsignarVehiculo(cReceptor* ReceptorSelecionado, cDonante* DonanteSeleccionado) {
-	cout << "Asignando Vehiculo" << endl;
 	if (Provincia == ReceptorSelecionado->GetCentroDeSalud()->GetProvincia() && Partido == ReceptorSelecionado->GetCentroDeSalud()->GetPartido()) {
 		for (unsigned int PosicionListaDeVehiculosDisponibles = 0; PosicionListaDeVehiculosDisponibles < ListaDeVehiculosDisponibles->CA; PosicionListaDeVehiculosDisponibles++) {
 			cAmbulancia* AmbulanciaAuxiliar = dynamic_cast<cAmbulancia*> (ListaDeVehiculosDisponibles->Array[PosicionListaDeVehiculosDisponibles]);
 			if (AmbulanciaAuxiliar != NULL) {
-				cout << "Ambulancia disponilbe" << endl;
 				AmbulanciaAuxiliar->RecibirOrgano(RealizarAblacion(DonanteSeleccionado, ReceptorSelecionado->GetOrganoRecibir()->getTipo()));
 				return AmbulanciaAuxiliar;
 			}
@@ -39,7 +37,6 @@ cVehiculo* cCentroDeSalud::AsignarVehiculo(cReceptor* ReceptorSelecionado, cDona
 		for (unsigned int PosicionListaDeVehiculosDisponibles = 0; PosicionListaDeVehiculosDisponibles < ListaDeVehiculosDisponibles->CA; PosicionListaDeVehiculosDisponibles++) {
 			cHelicoptero* HelicopteroAuxiliar = dynamic_cast<cHelicoptero*> (ListaDeVehiculosDisponibles->Array[PosicionListaDeVehiculosDisponibles]);
 			if (HelicopteroAuxiliar != NULL) {
-				cout << "Helicoptero disponilbe" << endl;
 				HelicopteroAuxiliar->RecibirOrgano(RealizarAblacion(DonanteSeleccionado, ReceptorSelecionado->GetOrganoRecibir()->getTipo()));
 				return HelicopteroAuxiliar;
 			}
@@ -49,14 +46,11 @@ cVehiculo* cCentroDeSalud::AsignarVehiculo(cReceptor* ReceptorSelecionado, cDona
 		for (unsigned int PosicionListaDeVehiculosDisponibles = 0; PosicionListaDeVehiculosDisponibles < ListaDeVehiculosDisponibles->CA; PosicionListaDeVehiculosDisponibles++) {
 			cAvion* AvionAuxiliar = dynamic_cast<cAvion*> (ListaDeVehiculosDisponibles->Array[PosicionListaDeVehiculosDisponibles]);
 			if (AvionAuxiliar != NULL) {
-				cout << "Avion disponilbe" << endl;
 				AvionAuxiliar->RecibirOrgano(RealizarAblacion(DonanteSeleccionado, ReceptorSelecionado->GetOrganoRecibir()->getTipo()));
 				return AvionAuxiliar;
 			}
 		}
 	}
-
-	cout << "No hay Vehiculos disponibles" << endl;
 	return NULL;
 }
 
@@ -68,22 +62,17 @@ cOrgano* cCentroDeSalud::RealizarAblacion(cDonante*Donante,eTipoDeOrgano TipoDeO
 }
 
 bool cCentroDeSalud::RealizarTransplante(cReceptor* ReceptorSeleccionado, cVehiculo* VehiculoDeTransplante) {
-	cout << "Vehiculo llego al Centro de Salud del Receptor" << endl;
 	cOrgano* OrganoParaTranpslante = VehiculoDeTransplante->EntregarOrgano();
 	if (OrganoParaTranpslante->GetFechaAbleacion()->CompararFechas(OrganoParaTranpslante->GetFechaAbleacion()) == true) {
 		ReceptorSeleccionado->SetOrganoNuevo(OrganoParaTranpslante);
-		cout << "Transplante Realizado" << endl;
 		srand((unsigned)time(NULL));
 		if ((rand() % 2) == 1) {
-			cout << "Transplante NO exitoso" << endl;
 			return false;
 		}
-		cout << "Transplante exitoso" << endl;
 		return true;
 	}
-	else{
-		cout << "Pasaron mas de 20 horas" << endl;
-	}
+	///
+	return false;
 }
 
 string cCentroDeSalud::GetPartido()const {

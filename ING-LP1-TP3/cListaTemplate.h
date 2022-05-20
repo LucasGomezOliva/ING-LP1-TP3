@@ -80,7 +80,6 @@ inline T*cListaTemplate <T>::Quitar(T* objeto) {
 template <class T>
 inline int cListaTemplate <T>::getPos(T* objeto) {
 	for (unsigned int i = 0; i < CA; i++) {
-		// sobrecarga de ==
 		if (*objeto == *(Array[i]))
 			return i;
 	}
@@ -90,13 +89,10 @@ inline int cListaTemplate <T>::getPos(T* objeto) {
 template <class T>
 inline void cListaTemplate <T>::Listar() {
 	for (unsigned int i = 0; i < CA; i++) {
-		//sobrecarga <<
-		//cout << *Array[i] << endl;
 		cout << Array[i] << endl;
 	}
 }
 
-	//sobrecarga de operadores
 template <class T>
 inline void cListaTemplate <T>::operator+(T* objeto) {
 	Agregar(objeto);
