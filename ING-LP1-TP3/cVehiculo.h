@@ -11,6 +11,7 @@ public:
 	cVehiculo();
 	cVehiculo(string IDVehiculo);
 	~cVehiculo();
+	cOrgano* GetOrgano();
 	void RecibirOrgano(cOrgano* Organo);
 	cOrgano* EntregarOrgano();
 	virtual void imprimir() = 0;

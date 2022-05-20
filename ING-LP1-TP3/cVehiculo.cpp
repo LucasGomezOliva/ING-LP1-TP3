@@ -11,6 +11,10 @@ cVehiculo::~cVehiculo() {
 
 }
 
+cOrgano* cVehiculo::GetOrgano() {
+	return Organo;
+}
+
 void cVehiculo::RecibirOrgano(cOrgano* Organo) {
 	this->Organo = Organo;
 }

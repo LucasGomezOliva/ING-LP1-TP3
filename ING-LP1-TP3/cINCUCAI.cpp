@@ -103,20 +103,17 @@ void cINCUCAI::ProtocoloTransporteTransplante(cReceptor* ReceptorSelecionado, cD
 	cout << "Inicio de protocolo de transplante" << endl;
 	cVehiculo* VehiculoDeTransplante = DonanteSeleccionado->GetCentroDeSalud()->AsignarVehiculo(ReceptorSelecionado, DonanteSeleccionado);
 	if (VehiculoDeTransplante != NULL) {
+		this->CantidadDeDonacionesPorProvincia++;
 		VehiculoDeTransplante->imprimir();
-		if (ReceptorSelecionado->GetCentroDeSalud()->RealizarTransplante(ReceptorSelecionado, VehiculoDeTransplante) == false) {
-			ReceptorSelecionado->SetEstado(eEstadoReceptor::Inestable);
-			ReceptorSelecionado->SetPrioridad(ePrioridad::Urgente);
-
-			this->CantidadDeDonacionesPorProvincia++;
-
-		}
-		else {
-			*(ListaReceptoresINCUCAI) - ReceptorSelecionado;
-
-			this->CantidadDeDonacionesPorProvincia++;
-
-			cout << "Receptor eliminado de la lista del INCUCAI" << endl;
+		if (VehiculoDeTransplante->GetOrgano()->GetFechaAbleacion()->CompararFechas(VehiculoDeTransplante->GetOrgano()->GetFechaAbleacion()) == true){
+			if (ReceptorSelecionado->GetCentroDeSalud()->RealizarTransplante(ReceptorSelecionado, VehiculoDeTransplante) == false) {
+				ReceptorSelecionado->SetEstado(eEstadoReceptor::Inestable);
+				ReceptorSelecionado->SetPrioridad(ePrioridad::Urgente);
+			}
+			else {
+				*(ListaReceptoresINCUCAI)-ReceptorSelecionado;
+				cout << "Receptor eliminado de la lista del INCUCAI" << endl;
+			}
 		}
 	}
 }
