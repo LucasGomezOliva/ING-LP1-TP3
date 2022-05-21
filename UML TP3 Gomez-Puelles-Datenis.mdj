@@ -6042,9 +6042,9 @@
 										"$ref": "AAAAAAGAyE92w2Klgdk="
 									},
 									"font": "Arial;13;0",
-									"left": 2289,
+									"left": 2284,
 									"top": 245,
-									"width": 19.5126953125,
+									"width": 28.91357421875,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -6052,7 +6052,7 @@
 										"$ref": "AAAAAAGAyE92w2Kom5w="
 									},
 									"edgePosition": 2,
-									"text": "1"
+									"text": "0..10"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -6113,7 +6113,7 @@
 									"hostEdge": {
 										"$ref": "AAAAAAGAyE92w2Kom5w="
 									},
-									"text": "0..10"
+									"text": "1"
 								},
 								{
 									"_type": "UMLQualifierCompartmentView",
@@ -7141,9 +7141,9 @@
 										"$ref": "AAAAAAGA4pEXx1ZMQGQ="
 									},
 									"font": "Arial;13;0",
-									"left": 2339,
+									"left": 2332,
 									"top": 1525,
-									"width": 7.22998046875,
+									"width": 21.68359375,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -7151,7 +7151,7 @@
 										"$ref": "AAAAAAGA4pEXx1ZPfX0="
 									},
 									"edgePosition": 2,
-									"text": "1"
+									"text": "9"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -7214,7 +7214,7 @@
 									"hostEdge": {
 										"$ref": "AAAAAAGA4pEXx1ZPfX0="
 									},
-									"text": "9"
+									"text": "1"
 								},
 								{
 									"_type": "UMLQualifierCompartmentView",
@@ -8245,9 +8245,9 @@
 										"$ref": "AAAAAAGA4qN26v1wH2w="
 									},
 									"font": "Arial;13;0",
-									"left": 2341,
+									"left": 2326,
 									"top": 700,
-									"width": 7.22998046875,
+									"width": 36.1435546875,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -8255,7 +8255,7 @@
 										"$ref": "AAAAAAGA4qN26v1z/6c="
 									},
 									"edgePosition": 2,
-									"text": "1"
+									"text": "0..100"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -8316,7 +8316,7 @@
 									"hostEdge": {
 										"$ref": "AAAAAAGA4qN26v1z/6c="
 									},
-									"text": "0..100"
+									"text": "1"
 								},
 								{
 									"_type": "UMLQualifierCompartmentView",
@@ -8526,7 +8526,7 @@
 										"$ref": "AAAAAAGA4rFDtobNxRc="
 									},
 									"edgePosition": 2,
-									"text": "1"
+									"text": "0..100"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -8587,7 +8587,7 @@
 									"hostEdge": {
 										"$ref": "AAAAAAGA4rFDtobNxRc="
 									},
-									"text": "0..100"
+									"text": "1"
 								},
 								{
 									"_type": "UMLQualifierCompartmentView",
@@ -9307,7 +9307,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3WiwH7iUJBQ="
 									},
-									"name": "string"
+									"name": "string",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -9315,7 +9316,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3WiwH7iUJBQ="
 									},
-									"name": "string"
+									"name": "string",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -9323,7 +9325,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3WiwH7iUJBQ="
 									},
-									"name": "eTipoDeSangre"
+									"name": "eTipoDeSangre",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -9331,7 +9334,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3WiwH7iUJBQ="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -9339,7 +9343,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3WiwH7iUJBQ="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -9347,7 +9352,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3WiwH7iUJBQ="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -9355,7 +9361,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3WiwH7iUJBQ="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -9363,7 +9370,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3WiwH7iUJBQ="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -9371,7 +9379,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3WiwH7iUJBQ="
 									},
-									"name": "cCentroDeSalud"
+									"name": "cCentroDeSalud",
+									"type": ""
 								}
 							]
 						},
@@ -9915,7 +9924,7 @@
 								"reference": {
 									"$ref": "AAAAAAGAxgkXlLwpGKw="
 								},
-								"multiplicity": "1"
+								"multiplicity": "0..10"
 							},
 							"end2": {
 								"_type": "UMLAssociationEnd",
@@ -9927,7 +9936,7 @@
 									"$ref": "AAAAAAGAxZLWIOsNhys="
 								},
 								"aggregation": "composite",
-								"multiplicity": "0..10"
+								"multiplicity": "1"
 							}
 						},
 						{
@@ -10149,7 +10158,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA4Zq6pG3JuNg="
 									},
-									"name": "string"
+									"name": "string",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10157,7 +10167,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA4Zq6pG3JuNg="
 									},
-									"name": "string"
+									"name": "string",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10165,7 +10176,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA4Zq6pG3JuNg="
 									},
-									"name": "string"
+									"name": "string",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10173,7 +10185,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA4Zq6pG3JuNg="
 									},
-									"name": "string"
+									"name": "string",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10181,7 +10194,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA4Zq6pG3JuNg="
 									},
-									"name": "long int"
+									"name": "long int",
+									"type": ""
 								}
 							]
 						},
@@ -10414,7 +10428,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3hX42qqrI+Y="
 									},
-									"name": "string"
+									"name": "string",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10422,7 +10437,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3hX42qqrI+Y="
 									},
-									"name": "string"
+									"name": "string",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10430,7 +10446,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3hX42qqrI+Y="
 									},
-									"name": "eTipoDeSangre"
+									"name": "eTipoDeSangre",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10438,7 +10455,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3hX42qqrI+Y="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10446,7 +10464,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3hX42qqrI+Y="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10454,7 +10473,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3hX42qqrI+Y="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10462,7 +10482,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3hX42qqrI+Y="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10470,7 +10491,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3hX42qqrI+Y="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10478,7 +10500,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3hX42qqrI+Y="
 									},
-									"name": "cCentroDeSalud"
+									"name": "cCentroDeSalud",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10486,7 +10509,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3hX42qqrI+Y="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10494,7 +10518,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3hX42qqrI+Y="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10502,7 +10527,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3hX42qqrI+Y="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10510,7 +10536,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3hX42qqrI+Y="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10518,7 +10545,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3hX42qqrI+Y="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								}
 							]
 						},
@@ -10978,7 +11006,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3SOgJ+99eSE="
 									},
-									"name": "string"
+									"name": "string",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10986,7 +11015,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3SOgJ+99eSE="
 									},
-									"name": "string"
+									"name": "string",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -10994,7 +11024,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3SOgJ+99eSE="
 									},
-									"name": "eTipoDeSangre"
+									"name": "eTipoDeSangre",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -11002,7 +11033,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3SOgJ+99eSE="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -11010,7 +11042,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3SOgJ+99eSE="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -11018,7 +11051,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3SOgJ+99eSE="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -11026,7 +11060,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3SOgJ+99eSE="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -11034,7 +11069,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3SOgJ+99eSE="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -11042,7 +11078,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3SOgJ+99eSE="
 									},
-									"name": "cCentroDeSalud"
+									"name": "cCentroDeSalud",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -11050,7 +11087,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3SOgJ+99eSE="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -11058,7 +11096,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3SOgJ+99eSE="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -11066,7 +11105,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3SOgJ+99eSE="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -11074,7 +11114,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3SOgJ+99eSE="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -11082,7 +11123,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3SOgJ+99eSE="
 									},
-									"name": "int"
+									"name": "int",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -11090,7 +11132,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3SOgJ+99eSE="
 									},
-									"name": "ePrioridad in string"
+									"name": "ePrioridad in string",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -11098,7 +11141,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGA3SOgJ+99eSE="
 									},
-									"name": "eEstadoReceptor"
+									"name": "eEstadoReceptor",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -11861,7 +11905,7 @@
 								"reference": {
 									"$ref": "AAAAAAGAyD/C1Pb6Fu0="
 								},
-								"multiplicity": "1"
+								"multiplicity": "9"
 							},
 							"end2": {
 								"_type": "UMLAssociationEnd",
@@ -11873,7 +11917,7 @@
 									"$ref": "AAAAAAGAxgSnyrs7ork="
 								},
 								"aggregation": "composite",
-								"multiplicity": "9"
+								"multiplicity": "1"
 							}
 						}
 					],
@@ -12117,7 +12161,7 @@
 								"reference": {
 									"$ref": "AAAAAAGAxgVHWLtqpJM="
 								},
-								"multiplicity": "1"
+								"multiplicity": "0..100"
 							},
 							"end2": {
 								"_type": "UMLAssociationEnd",
@@ -12129,7 +12173,7 @@
 									"$ref": "AAAAAAGAyELK4fdKwoU="
 								},
 								"aggregation": "composite",
-								"multiplicity": "0..100"
+								"multiplicity": "1"
 							}
 						},
 						{
@@ -12147,7 +12191,7 @@
 								"reference": {
 									"$ref": "AAAAAAGAxgSnyrs7ork="
 								},
-								"multiplicity": "1"
+								"multiplicity": "0..100"
 							},
 							"end2": {
 								"_type": "UMLAssociationEnd",
@@ -12159,7 +12203,7 @@
 									"$ref": "AAAAAAGAyELK4fdKwoU="
 								},
 								"aggregation": "composite",
-								"multiplicity": "0..100"
+								"multiplicity": "1"
 							}
 						}
 					],
