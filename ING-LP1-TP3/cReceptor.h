@@ -1,7 +1,5 @@
 #pragma once
 #include"cPaciente.h"
-//#include"ePrioridad.h"
-//#include"eEstadoReceptor.h"
 #include"Enums.h"
 using namespace std;
 class cReceptor :public cPaciente

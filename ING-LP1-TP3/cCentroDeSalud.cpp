@@ -5,7 +5,7 @@ cCentroDeSalud::cCentroDeSalud() {
 	this->Partido = "";
 	this->Provincia = "";
 	this->Telefono = 0;
-	this->ListaDeVehiculosDisponibles = new cListaVehiculos(10, false);
+	this->ListaDeVehiculosDisponibles = new cListaVehiculos(10, true);
 }
 cCentroDeSalud::cCentroDeSalud(string Nombre,string Direccion,string Partido,string Provincia,long int Telefono) {
 	this->Nombre = Nombre;
@@ -71,7 +71,6 @@ bool cCentroDeSalud::RealizarTransplante(cReceptor* ReceptorSeleccionado, cVehic
 		}
 		return true;
 	}
-	///
 	return false;
 }
 

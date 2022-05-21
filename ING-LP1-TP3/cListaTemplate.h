@@ -10,8 +10,8 @@ class cListaTemplate
 protected:
 	T** Array;
 	unsigned int CA, TAM;
-	bool on_delete_erase;
-	bool allow_duplicates;
+	bool borrar;
+	bool duplicados;
 
 public:
 	cListaTemplate(unsigned int TAM = SIZE, bool on_delete_erase = false);
@@ -33,14 +33,14 @@ inline cListaTemplate <T>::cListaTemplate(unsigned int TAM, bool on_delete_erase
 	for (unsigned int i = 0; i < TAM; i++){
 		Array[i] = NULL;
 	}
-	this->on_delete_erase = on_delete_erase;
-	this->allow_duplicates = false;
+	this->borrar = on_delete_erase;
+	this->duplicados = false;
 }
 
 template <class T>
 inline cListaTemplate <T>::~cListaTemplate() {
 	if (Array != NULL) {
-		if (on_delete_erase) {
+		if (borrar) {
 			for (unsigned int i = 0; i < CA; i++) {
 				if (Array[i] != NULL)
 					delete Array[i];
@@ -58,7 +58,7 @@ inline void cListaTemplate <T>::Agregar(T* objeto) {
 	bool hay_lugar = CA < TAM;
 	if (!hay_lugar)
 		throw exception("No Hay Lugar");
-	if (pos >= 0 && !allow_duplicates)
+	if (pos >= 0 && !duplicados)
 		throw exception("ya esta en la lista");
 	Array[CA++] = objeto;
 }

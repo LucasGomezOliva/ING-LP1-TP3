@@ -39,7 +39,7 @@ void cDonante::SetFallecimiento(int DiaFallecimiento, int MesFallecimiento, int 
 }
 
 void cDonante::SetFechaComienzoAbleacion(int DiaComienzoAbleacion, int MesComienzoAbleacion, int AnioComienzoAbleacion, int HoraComienzoAbleacion, int MinutosComienzoAbleacion) {
-	this->FechaFalleciemiento = new cFecha(DiaComienzoAbleacion, MesComienzoAbleacion, AnioComienzoAbleacion, HoraComienzoAbleacion, MinutosComienzoAbleacion);
+	this->FechaComienzoAbleacion = new cFecha(DiaComienzoAbleacion, MesComienzoAbleacion, AnioComienzoAbleacion, HoraComienzoAbleacion, MinutosComienzoAbleacion);
 }
 
 cOrgano* cDonante::GetOrgano(unsigned int NumeroDeOrgano) const {
